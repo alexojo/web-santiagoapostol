@@ -1,9 +1,10 @@
 import React from 'react'
+import { Hero } from './components/hero/Hero'
 
 export const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world
-    </h1>
+    <>
+      <Hero/>
+    </>
   )
 }

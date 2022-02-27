@@ -6,7 +6,7 @@ export const Content = () => {
         <div className="mx-auto  container flex flex-col items-center justify-center">
 
             <div className="xl:w-1/2 w-11/12">
-                <h1 tabIndex={0} className="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
+                <h1 tabIndex={0} className="lg:text-6xl md:text-5xl text-3xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
                     Tocando cientos de vidas
                 </h1>
                 <h2 role="contentinfo" tabIndex={0} className="text-base leading-normal text-center text-gray-600 mt-5">

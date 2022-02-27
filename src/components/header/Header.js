@@ -7,7 +7,7 @@ export const Header = () => {
             <nav className="w-full border-b-2 bg-white">
                 <div className="py-5 md:py-0 container mx-auto flex justify-center items-center md:justify-between">
                     <div aria-label="Home. logo" role="img">
-                        <img className="w-12 justify-center hover:translate-y-1 hover:scale-105 duration-300" src="https://scontent.faqp2-2.fna.fbcdn.net/v/t1.6435-9/32595184_1915145531893473_362045681260560384_n.png?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHSDxCN5tYilmE3vcSAKxGzWE_RNIJeSaFYT9E0gl5JoREzDlIravuOJqwsniOCaR6bbncuc0BOo2dB69p8nApm&_nc_ohc=utCjc3OB0rkAX-kx-xI&tn=NXhlY5J3Uh-rUa_U&_nc_ht=scontent.faqp2-2.fna&oh=00_AT_u7ty0jgmY17pK3io4JxTtpDMl5KgRj6Es7O28SwV5Gw&oe=6238E55C" alt="logo" />
+                        <img className="w-12 justify-center hover:translate-y-1 hover:scale-105 duration-300" src={require('../../images/Insignia.png')} alt="logo" />
                     </div>
 
                     <div id="menu" className=" " >

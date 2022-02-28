@@ -32,7 +32,7 @@ export const Question = () => {
             {box1 && (
                 <ul class=" pl-8 mb-8 delay-">
                     <li>
-                        <p class="text-base md:text-xl leading-normal text-gray-600 mt-4 ">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                        <p class="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
                     </li>
                 </ul>
             )}

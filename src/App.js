@@ -1,10 +1,12 @@
 import React from 'react'
 import { AboutUs } from './components/about/AboutUs'
+import { ContactUs } from './components/contact us/ContactUs'
 import { Content } from './components/content/Content'
 import { FaQ } from './components/faq/FaQ'
+import { Footer } from './components/footer/Footer'
 import { Header } from './components/header/Header'
 import { Hero } from './components/hero/Hero'
-import { New } from './components/news/New'
+import { News } from './components/news/News'
 import { Stat } from './components/stat/Stat'
 
 export const App = () => {
@@ -16,8 +18,9 @@ export const App = () => {
         <AboutUs/>
         <Content/>
         <FaQ/>
-        <New/>
-
+        <News/>
+        <ContactUs/>
+        <Footer/>
     </>
 
 

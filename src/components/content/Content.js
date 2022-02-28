@@ -14,7 +14,7 @@ export const Content = () => {
                 </h2>
             </div>
 
-            <div className="2xl:px-20 lg:px-12 px-4 flex flex-wrap justify-center mt-4">
+            <div className="px-4 flex flex-wrap justify-center mt-4">
 
                 <div className="mt-12">
                     <div className="flex items-end ">

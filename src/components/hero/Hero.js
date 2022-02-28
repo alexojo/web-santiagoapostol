@@ -18,9 +18,9 @@ export const Hero = () => {
                         "Más de 25 años formando personas de calidad"</p>
                 </div>
                 <div className="flex justify-center items-center">
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                    bg-blue-600 transition duration-150 ease-in-out hover:bg-blue-400 lg:text-xl lg:font-bold  
-                    rounded text-white px-4 sm:px-10 border border-blue-500 py-2 sm:py-4 text-sm">Matricúlame</button>
+                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500
+                    bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-400 lg:text-xl lg:font-bold  
+                    rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm">Matricúlame</button>
 
                 </div>
             </div>

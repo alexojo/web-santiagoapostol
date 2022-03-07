@@ -6,7 +6,7 @@ export const Stat = () => {
         
         <>
             <div class="w-full py-10 lg:pt-10 lg:pb-10 bg-gray-100">
-                <div class="mx-auto  container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="mx-auto  container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 duration-700">
                     
 
                     <div class="flex justify-center items-center w-full lg:border-r border-gray-300 hover:translate-y-1 hover:scale-105 duration-300">

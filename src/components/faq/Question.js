@@ -5,9 +5,9 @@ export const Question = () => {
     const [box1, setBox1] = useState(false);
 
     return (
-        <div class="">
+        <div data-aos="flip-up" data-aos-duration="1000" class="">
 
-            <div class={`group shadow-[0_4px_6px_-1px_rgba(0,0,0,0.4)]  rounded p-4 md:p-8  hover:cursor-pointer mb-5
+            <div class={`group shadow-[0_4px_6px_-1px_rgba(0,0,0,0.4)]  rounded p-4 md:p-4  hover:cursor-pointer mb-5
             
             ${box1 ? 'bg-sky-700 ': 'bg-slate-50 hover:bg-sky-700 duration-500' }`}
             
@@ -30,7 +30,7 @@ export const Question = () => {
             </div>
     
             {box1 && (
-                <ul class=" pl-8 mb-8 delay-">
+                <ul class=" px-4 mb-8 delay-">
                     <li>
                         <p class="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
                     </li>

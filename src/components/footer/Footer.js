@@ -12,15 +12,15 @@ export const Footer = () => {
             </div>
             <div class="border-2 rounded-lg grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-center items-center mt-3 mx-4 sm:mx-0 py-4">
                 <div class ="flex flex-row justify-center items-center text-white">
-                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-phone fa-lg"></i>
                     <p class="ml-3 ">(+51) 084-242443</p>
                 </div>
                 <div class="flex flex-row justify-center items-center text-white">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-envelope fa-lg"></i>
                     <p class="ml-3 ">santiagoapostol@gmail.com</p>
                 </div>
                 <div class="flex flex-row justify-center items-center text-white">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i class="fa-solid fa-location-dot fa-lg"></i>
                     <p class="ml-3 ">Plaza Santiago N°517</p>
                 </div>
             </div>
@@ -31,9 +31,9 @@ export const Footer = () => {
                     <p class="text-white text-center font-semibold mx-4 sm:mx-0">Copyright © 2022 Desarrollado por Alexander Monzon. Todos los derechos reservados</p>    
                 </div>
                 <div class="grid grid-cols-3 gap-5 justify-center items-center text-center text-white pt-3 sm:pt-0 mx-40 sm:mx-0">
-                    <i class="fa-brands fa-github"></i>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-solid fa-envelope"></i>
+                    <a href='https://www.youtube.com/' class=" hover:text-gray-300"><i class="fa-brands fa-github fa-xl"></i></a>
+                    <a href='https://www.youtube.com/' class=" hover:text-gray-300"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                    <a href='https://www.youtube.com/' class=" hover:text-gray-300"><i class="fa-solid fa-envelope fa-xl"></i></a>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ export const Question = () => {
     const [box1, setBox1] = useState(false);
 
     return (
-        <div data-aos="flip-up" data-aos-duration="1000" class="">
+        <div data-aos="flip-down" data-aos-duration="2000" class="">
 
             <div class={`group shadow-[0_4px_6px_-1px_rgba(0,0,0,0.4)]  rounded p-4 md:p-4  hover:cursor-pointer mb-5
             

@@ -10,7 +10,7 @@ export const Content = () => {
                     Tocando cientos de vidas
                 </h1>
                 <h2 role="contentinfo" tabIndex={0} className="text-base leading-normal text-center text-gray-600 mt-5">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing
+                    Brindando nuestra experiencia y amor en la formación de nuestros niños, para que sean hombres y mujeres de bien que destaquen en nuestra sociedad
                 </h2>
             </div>
 
@@ -20,21 +20,21 @@ export const Content = () => {
                 <div className="mt-12">
                     <div className="flex items-end ">
                         <img tabIndex={0} src="https://i.ibb.co/kBgtHK6/Rectangle-5.png" alt="girl with blue background" className="w-20 h-20 rounded-lg mr-6 hover:brightness-75 duration-500" />
-                        <img tabIndex={0} src="https://i.ibb.co/9nLBtjx/Rectangle-3.png" alt="guy winking" className="w-48 h-36 rounded-lg hover:brightness-75 duration-500" />
+                        <img tabIndex={0} src="https://i.ibb.co/4FM6tQq/DSC-0190-2.jpg" alt="guy winking" className="w-48 h-36 rounded-lg hover:brightness-75 duration-500 object-cover" />
                     </div>
                     <div className="flex items-center justify-end my-6 hover:brightness-75 duration-500">
-                        <img tabIndex={0} src="https://i.ibb.co/jRbF1KF/Rectangle-4.png" alt="guy smiling" />
+                        <img tabIndex={0} src="https://i.ibb.co/RysTGc8/DSC-0123-2.jpg" alt="guy smiling" className=" w-4/5 h-44 rounded-lg hover:brightness-75 duration-500 object-cover"/>
                     </div>
                     <div className="flex items-start">
-                        <img tabIndex={0} src="https://i.ibb.co/Sf4Q94L/Rectangle-6.png" alt="girl with bluw background" className="w-48 h-48 rounded-lg hover:brightness-75 duration-500" />
-                        <img tabIndex={0} src="https://i.ibb.co/fnNqJrx/Rectangle-7.png" alt="guy with glasses" className="w-20 h-20 rounded-lg ml-6 flex-shrink-0 object-cover object-fit hover:brightness-75 duration-500" />
+                        <img tabIndex={0} src="https://i.ibb.co/MC1jqj5/DSC-0033-2.jpg" alt="girl with bluw background" className="w-48 h-48 rounded-lg hover:brightness-75 duration-500 object-cover" />
+                        <img tabIndex={0} src="https://i.ibb.co/7bcqfwY/DSC-0066.jpg" alt="guy with glasses" className="w-20 h-20 rounded-lg ml-6 flex-shrink-0 object-cover object-fit hover:brightness-75 duration-500" />
                     </div>
                 </div>
                 
                 <div className="ml-6 mt-6">
-                    <img tabIndex={0} src="https://i.ibb.co/LSxy7fy/Rectangle-9.png" className="w-72 h-80 rounded-lg hover:brightness-75 duration-500" alt="guy with sunglasses" />
+                    <img tabIndex={0} src="https://i.ibb.co/ZmJ3jPh/DSC-0048-2.jpg" className="w-72 h-80 rounded-lg hover:brightness-75 duration-500 object-cover" alt="guy with sunglasses" />
                     <div className="flex items-start mt-6">
-                        <img tabIndex={0} src="https://i.ibb.co/X8PKD3q/Rectangle-8.png" alt="girl  laughing" className="w-48 h-48 rounded-lg hover:brightness-75 duration-500" />
+                        <img tabIndex={0} src="https://i.ibb.co/f9VT7Hj/DSC-0014-2.jpg" alt="girl  laughing" className="w-48 h-48 rounded-lg hover:brightness-75 duration-500 object-cover" />
                         <img tabIndex={0} src="https://i.ibb.co/2Yj51CY/Rectangle-13.png" alt="guy with glasses" className="w-20 h-20 rounded-lg ml-6 object-cover object-fit hover:brightness-75 duration-500" />
                     </div>
                 </div>
@@ -42,19 +42,19 @@ export const Content = () => {
                 <div className="mt-6 ml-6">
                     <div className="lg:flex ">
                         <div>
-                            <img tabIndex={0} src="https://i.ibb.co/bWGVSkP/Rectangle-10.png" alt="group of friends" className="w-96 h-72 rounded-lg object-center object-fit hover:brightness-75 duration-500" />
+                            <img tabIndex={0} src="https://i.ibb.co/5RWZpt2/DSC-0060-2.jpg" alt="group of friends" className="w-96 h-72 rounded-lg object-center object-fit hover:brightness-75 duration-500 object-cover" />
                         </div>
                         <div>
                             <div className="flex ml-6">
                                 <img tabIndex={0} src="https://i.ibb.co/80jvpSv/Rectangle-16.png" className="w-20 h-20 rounded-lg mt-14 hover:brightness-75 duration-500" alt="man" />
                                 <img tabIndex={0} src="https://i.ibb.co/6PR2Y74/Rectangle-15.png" className="w-20 h-24 mt-6 lg:mt-0 rounded-lg ml-6 hover:brightness-75 duration-500" alt="woman" />
                             </div>
-                            <img tabIndex={0} src="https://i.ibb.co/M5rvjhk/Rectangle-14.png" alt="boy with blonde hair" className="ml-6 mt-6 w-48 h-32 rounded-lg hover:brightness-75 duration-500" />
+                            <img tabIndex={0} src="https://i.ibb.co/b7GTbVW/DSC-0131-2.jpg" alt="boy with blonde hair" className="ml-6 mt-6 w-48 h-32 rounded-lg hover:brightness-75 duration-500 object-cover" />
                         </div>
                     </div>
                     <div className="mt-6 flex flex-wrap">
-                        <img tabIndex={0} className="w-48 h-48 rounded-lg hover:brightness-75 duration-500" src="https://i.ibb.co/GPpMsbr/Rectangle-12.png" alt="young girl with red hair" />
-                        <img tabIndex={0} className="w-72 h-56 rounded-lg mt-6 sm:mt-0 ml-6 hover:brightness-75 duration-500" src="https://i.ibb.co/VBcgkVL/Rectangle-11.png" alt="young girl with red hair" />
+                        <img tabIndex={0} className="w-48 h-48 rounded-lg hover:brightness-75 duration-500 object-cover" src="https://i.ibb.co/fQ2BKcM/239313794-4317376238330252-6159125347695414633-n.jpg" alt="young girl with red hair" />
+                        <img tabIndex={0} className="w-72 h-56 rounded-lg mt-6 sm:mt-0 ml-6 hover:brightness-75 duration-500 object-cover" src="https://i.ibb.co/K9Y8NFB/DSC-0109-3-3.jpg" alt="young girl with red hair" />
                     </div>
                 </div>
             </div>

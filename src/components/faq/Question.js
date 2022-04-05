@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export const Question = () => {
+export const Question = ( { pregunta, respuesta } ) => {
 
     const [box1, setBox1] = useState(false);
 
@@ -15,7 +15,9 @@ export const Question = () => {
     
                 <div class="flex items-center justify-between">
                     <div >
-                        <h2 class={`group-hover:text-white text-base md:text-xl font-semibold leading-none select-none ${box1 ? ' text-white':'text-gray-800'}`}>Why should I use your service? Why should I use your service? </h2>
+                        <h2 class={`group-hover:text-white text-base md:text-xl font-semibold leading-none select-none ${box1 ? ' text-white':'text-gray-800'}`}>
+                            {pregunta}
+                        </h2>
                     </div>
     
                     <button  class="focus:outline-none cursor-pointer">
@@ -32,7 +34,9 @@ export const Question = () => {
             {box1 && (
                 <ul class=" px-4 mb-8 delay-">
                     <li>
-                        <p class="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                        <p class="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">
+                            {respuesta}
+                        </p>
                     </li>
                 </ul>
             )}

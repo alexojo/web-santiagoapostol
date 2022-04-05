@@ -1,4 +1,5 @@
 import React from 'react'
+import { Preguntas } from './Preguntas';
 import { Question } from './Question';
 
 
@@ -17,13 +18,14 @@ export const FaQ = () => {
 
                 <div class="container mx-auto mt-4  ">
                     
-                    <Question/>
-
-                    <Question/>
-
-                    <Question/>
-
-                    <Question/>
+                    {
+                        Preguntas.map( pregunta => (
+                            <Question
+                                pregunta = {pregunta.pregunta}
+                                respuesta = {pregunta.respuesta}
+                            />
+                        ))
+                    }
                     
                     
                 </div>

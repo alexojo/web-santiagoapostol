@@ -1,8 +1,10 @@
 import React from 'react'
 import { New } from './New'
+import { Noticias } from './Noticias'
 
 export const News = () => {
-  return (
+
+    return (
     <div class="py-10 container mx-auto  ">
         <div class="flex lg:flex-row justify-between flex-col lg:gap-8 gap-5">
             <div>
@@ -22,9 +24,17 @@ export const News = () => {
         </div>
 
         <div className="container mx-auto grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center mt-4 px-4 lg:px-0 pt-5">
-            <New/>
-            <New/>
-            <New/>
+            {
+                Noticias.map( noticia => (
+                    <New
+                        imagen = {noticia.imagen}
+                        mes = {noticia.mes}
+                        dia = {noticia.dia}
+                        evento = {noticia.evento}
+                        descripcion = {noticia.descripcion}
+                    />
+                ))
+            }
         </div>
 
 

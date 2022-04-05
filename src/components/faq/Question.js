@@ -5,17 +5,17 @@ export const Question = () => {
     const [box1, setBox1] = useState(false);
 
     return (
-        <div data-aos="flip-down" data-aos-duration="2000" class="">
+        <div  class="">
 
             <div class={`group shadow-[0_4px_6px_-1px_rgba(0,0,0,0.4)]  rounded p-4 md:p-4  hover:cursor-pointer mb-5
             
-            ${box1 ? 'bg-sky-700 ': 'bg-slate-50 hover:bg-sky-700 duration-500' }`}
-            
-            onClick={() => setBox1(!box1)}>
+                ${box1 ? 'bg-sky-700 ': 'bg-slate-50 hover:bg-sky-700 duration-500' }`}
+                
+                onClick={() => setBox1(!box1)}>
     
                 <div class="flex items-center justify-between">
                     <div >
-                        <h2 class={`group-hover:text-white text-base md:text-xl font-semibold leading-none ${box1 ? ' text-white':'text-gray-800'}`}>Why should I use your service? Why should I use your service? </h2>
+                        <h2 class={`group-hover:text-white text-base md:text-xl font-semibold leading-none select-none ${box1 ? ' text-white':'text-gray-800'}`}>Why should I use your service? Why should I use your service? </h2>
                     </div>
     
                     <button  class="focus:outline-none cursor-pointer">

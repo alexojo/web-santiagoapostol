@@ -18,9 +18,13 @@ export const News = () => {
             <div class="flex justify-center items-center">
                     <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
                     bg-sky-600 transition duration-150 ease-in-out hover:bg-blue-400 md:text-xl md:font-bold  
-                    rounded text-white px-4 sm:px-10 border border-blue-500 py-2 sm:py-4 text-sm">Ver más</button>
+                    rounded text-white px-4 sm:px-10 border border-blue-500 py-2 sm:py-4 text-sm active:shadow-lg"
 
-                </div>
+    data-mdb-ripple="true"
+    data-mdb-ripple-color="light">Ver más</button>
+
+                
+            </div>
         </div>
 
         <div className="container mx-auto grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center mt-4 px-4 lg:px-0 pt-5">

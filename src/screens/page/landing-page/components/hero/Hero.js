@@ -23,7 +23,9 @@ export const Hero = () => {
                     className="flex justify-center items-center">
                     <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500
                     bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-400 lg:text-xl lg:font-bold  
-                    rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm">Matricúlame</button>
+                    rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Iniciar Sesión
+                    </button>
 
                 </div>
             </div>

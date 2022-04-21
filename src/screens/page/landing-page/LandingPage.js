@@ -8,11 +8,13 @@ import { FaQ } from './components/faq/FaQ'
 import { News } from './components/news/News'
 import { ContactUs } from './components/contact us/ContactUs'
 import { Footer } from './components/footer/Footer'
+import { LoginScreen } from '../../auth/login/LoginScreen'
 
 
 export const LandingPage = () => {
   return (
     <>
+    
         <Header/>
         <Hero/>
         <Stat/>
@@ -22,6 +24,8 @@ export const LandingPage = () => {
         <News/>
         <ContactUs/>
         <Footer/>
+
+        <LoginScreen/>
     </>
   )
 }

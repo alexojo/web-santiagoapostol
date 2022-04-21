@@ -2,6 +2,8 @@ import React from 'react'
 
 export const Hero = () => {
 
+     
+
     return (
     <>
         <div className=" bg-cover md:bg-center bg-bg-img md:bg-bg-img-md">
@@ -21,11 +23,18 @@ export const Hero = () => {
                 </div>
                 <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1500"
                     className="flex justify-center items-center">
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500
-                    bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-400 lg:text-xl lg:font-bold  
-                    rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                    <button className="focus:outline-none bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-400 lg:text-xl lg:font-bold  
+                                        rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm select-none" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#exampleModal"
+                            data-mdb-ripple="true"
+                            data-mdb-ripple-color="light"
+                    >
                         Iniciar Sesión
                     </button>
+
+                    
 
                 </div>
             </div>

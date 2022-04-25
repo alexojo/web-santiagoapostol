@@ -1,9 +1,9 @@
 import React from 'react'
-
-
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import { LandingPage } from './screens/page/landing-page/LandingPage'
+
+import { AppRouter } from './routers/AppRouter';
+import { AuthContext } from './reducers/auth/authContext';
 
 AOS.init({
   // Global settings:
@@ -29,12 +29,9 @@ AOS.init({
 
 export const App = () => {
   return (
-    <>
-        <LandingPage/>
-    </>
+    <AuthContext.Provider>
+        <AppRouter />
+    </AuthContext.Provider>
 
-
-
-    
   )
 }

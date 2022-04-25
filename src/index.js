@@ -6,9 +6,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'tw-elements';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+    <App />,
   document.getElementById('root')
 );
 

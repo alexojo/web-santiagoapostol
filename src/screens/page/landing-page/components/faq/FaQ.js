@@ -4,6 +4,8 @@ import { Question } from './Question';
 
 
 export const FaQ = () => {
+
+    
     return (
 
         <div class='bg-sky-50'>
@@ -21,14 +23,15 @@ export const FaQ = () => {
                     {
                         Preguntas.map( pregunta => (
                             <Question
+                                
                                 pregunta = {pregunta.pregunta}
                                 respuesta = {pregunta.respuesta}
                             />
                         ))
                     }
-                    
-                    
+                  
                 </div>
+                <button></button>
             </div>
         </div>
 

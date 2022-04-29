@@ -17,6 +17,7 @@ export const LoginScreen = () => {
 
     return (
     <>
+        <h1>Login</h1>
         <div class="modal fade hidden overflow-y-auto overflow-x-hidden fixed w-full md:inset-0 h-modal md:h-full"
              id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 

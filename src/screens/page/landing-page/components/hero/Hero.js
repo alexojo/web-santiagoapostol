@@ -1,8 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export const Hero = () => {
 
-     
+    const navigate = useNavigate();
+
+
+
+    const handleLogin = () => {
+
+        navigate('/login')
+    }
 
     return (
     <>
@@ -26,10 +34,9 @@ export const Hero = () => {
 
                     <button className="focus:outline-none bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-400 lg:text-xl lg:font-bold  
                                         rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm select-none" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#exampleModal"
                             data-mdb-ripple="true"
                             data-mdb-ripple-color="light"
+                            onClick={ handleLogin }
                     >
                         Iniciar Sesión
                     </button>

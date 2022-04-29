@@ -1,10 +1,8 @@
-import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { AuthContext } from '../../../reducers/auth/authContext'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const SideBar = () => {
 
-    const {user} = useContext(AuthContext)
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -32,7 +30,6 @@ export const SideBar = () => {
                         Teacher
                     </NavLink>
 
-                    <a> {user.name}</a>
                 </div>
             </div>
         </nav>

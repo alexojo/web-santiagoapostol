@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginScreen = () => {
-  return (
+
+    // Hook que cambia la locacion
+    const navigate = useNavigate();
+
+
+
+    const handleLogin = () => {
+
+        navigate('/student',{
+            replace: true
+        })
+    }
+
+    return (
     <>
         <div class="modal fade hidden overflow-y-auto overflow-x-hidden fixed w-full md:inset-0 h-modal md:h-full"
              id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -38,7 +52,8 @@ export const LoginScreen = () => {
                             <a href="#" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Olvide mi contraseña?</a>
                         </div>
 
-                        <button type="submit" class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-600 dark:focus:ring-blue-800"
+                        <button type="submit" data-bs-dismiss="modal" class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-600 dark:focus:ring-blue-800"
+                                onClick={ handleLogin }
                         >
                             Ingresar
                         </button>

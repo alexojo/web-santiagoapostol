@@ -1,6 +1,4 @@
-import { types } from "../../types/types";
-
-
+import { types } from "../types/types";
 
 /* const action = {
     type: types.login
@@ -9,12 +7,17 @@ import { types } from "../../types/types";
     }
 } */
 
+const initialState = {
+    checking: true, // veririficar si la BD aun sigue analizando el input
+    // uid: null,
+    // name: null
+}
 
-export const authReducer = ( state= {}, action ) => {
+export const authReducer = ( state= initialState, action ) => {
 
     switch ( action.type ) {
 
-        case types.login:
+        /* case types.login:
             
             return {
                 ...action.payload,
@@ -25,7 +28,7 @@ export const authReducer = ( state= {}, action ) => {
         
             return {
                 logged: false
-            };
+            }; */
     
         default:
             return state;
@@ -33,4 +36,3 @@ export const authReducer = ( state= {}, action ) => {
         }
 
 }
-

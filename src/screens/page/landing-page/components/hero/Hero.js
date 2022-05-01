@@ -9,7 +9,9 @@ export const Hero = () => {
 
     const handleLogin = () => {
 
-        navigate('/login')
+        navigate('/login',{
+            replace: true
+        })
     }
 
     return (

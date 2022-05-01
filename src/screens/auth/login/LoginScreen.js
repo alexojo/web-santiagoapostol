@@ -9,65 +9,115 @@ export const LoginScreen = () => {
 
 
     const handleLogin = () => {
-
         navigate('/student',{
             replace: true
         })
     }
+    
+    const handleBack = () => {
+        navigate('/')
+    }
 
     return (
-    <>
-        <h1>Login</h1>
-        <div class="modal fade hidden overflow-y-auto overflow-x-hidden fixed w-full md:inset-0 h-modal md:h-full"
-             id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    
+        <div class="h-full  bg-gray-200 md:h-screen">
+            <div class="container mx-auto py-12 px-6 h-full">
+                <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+                <div class="xl:w-10/12">
+                    <div class="block bg-white shadow-lg rounded-lg">
+                    <div class="lg:flex lg:flex-wrap g-0">
+                        <div class="lg:w-6/12 px-4 md:px-0">
+                            <div class="md:p-12 md:mx-6">
+                                <div class="text-center pt-2 pb-7 md:pt-0">
+                                    <img
+                                        class="mx-auto h-16 w-auto"
+                                        src={require('../../../images/Insignia.png')}
+                                        alt="logo"
+                                    />
 
-
-            <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-                <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                    
-
-                    <div class="flex justify-end p-2">
-                        <button type="button" data-bs-dismiss="modal" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"></path></svg>  
-                        </button>
-                    </div>
-                    <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8">
-                        <h3 class="text-xl font-medium text-gray-900 dark:text-white">Iniciar Sesión</h3>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu correo electrónico</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="70405614@santiagoapostol.com"/>
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"/>
-                        </div>
-                        <div class="flex justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input  type="checkbox" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"/>
                                 </div>
-                                <div class="ml-3 text-sm">
-                                <label  class="font-medium text-gray-900 dark:text-gray-300">Recuerdame</label>
-                                </div>
+                                <form>
+                                    <div class="flex">
+                                    <h3 class="mb-4 text-xl font-medium text-gray-800">Iniciar sesión</h3>
+
+                                    </div>
+                                    <div class="mb-4">
+                                        
+                                        <label for="email" class="block mb-2 text-sm font-medium text-gray-800">Usuario</label>
+                                        <input
+                                        
+                                        type="text"
+                                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
+                                        
+                                        placeholder="usuario@santiagoapostol.com"
+                                        />
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block mb-2 text-sm font-medium text-gray-800">Contraseña</label>
+                                        <input
+                                        type="password"
+                                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
+                                        
+                                        placeholder="*******"
+                                        />
+                                    </div>
+                                    <div class="flex justify-between mb-6 mt-6">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-sky-600"/>
+                                            </div>
+                                            <label for="remember" class="ml-2 text-sm font-medium text-gray-900 ">Recuerdame</label>
+                                        </div>
+                                        <a href="#" class="text-sm font-medium text-sky-600 hover:underline ">Olvidaste tu contraseña?</a>
+                                    </div>
+                                    <div class="text-center mb-12 pb-1">
+                                        <button
+                                        class="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                                        type="button"
+                                        data-mdb-ripple="true"
+                                        data-mdb-ripple-color="light"
+
+                                        onClick={handleLogin}
+                                        >
+                                        Ingresar
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center justify-between pb-6">
+                                        <p class="text-sm font-medium text-gray-600 ">No estas registrado? <a href="#" class="text-sky-600 hover:underline">Crear cuenta</a></p>
+                                        <button
+                                        type="button"
+                                        class="inline-block px-6 py-2 border-2 border-sky-600 text-sky-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                        data-mdb-ripple="true"
+                                        data-mdb-ripple-color="light"
+
+                                        onClick={ handleBack }
+                                        >
+                                        <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                                        Atrás
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <a href="#" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Olvide mi contraseña?</a>
                         </div>
-
-                        <button type="submit" data-bs-dismiss="modal" class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-600 dark:focus:ring-blue-800"
-                                onClick={ handleLogin }
-                        >
-                            Ingresar
-                        </button>
-                        
-                        <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                            No estas registrado? <a href="#" class="text-sky-600 hover:underline dark:text-blue-500">Crear cuenta</a>
+                        <div class="bg-sky-700 lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none">
+                            <div class="text-white px-4 py-6 md:p-12 md:mx-6 text-justify ">
+                                <h4 class="text-xl font-semibold mb-6">Formando personas de calidad</h4>
+                                <p class="text-sm">
+                                Nuestra labor de compromiso es el de FORMAR PERSONAS DE CALIDAD 
+                                para lo cual contamos con profesionales de probada trayectoria, 
+                                quienes vuelcan sus conocimientos, experiencia y amor en la formación 
+                                de nuestros niños, para que sean hombre y mujeres de bien que destaquen
+                                    en nuestra sociedad y trasciendan para el bien de sus familiar, 
+                                    la comunidad y del país.
+                                </p>
+                            </div>
                         </div>
-                    </form>
-
-
+                    </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
-    </>
+    
   )
 }

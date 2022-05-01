@@ -25,7 +25,6 @@ export const LandingPage = () => {
         <ContactUs/>
         <Footer/>
 
-        <LoginScreen/>
     </>
   )
 }

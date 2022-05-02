@@ -5,8 +5,8 @@ import { Noticias } from './Noticias'
 export const News = () => {
 
     return (
-    <div class="py-10 container mx-auto  ">
-        <div class="flex lg:flex-row justify-between flex-col lg:gap-8 gap-5">
+    <div className="py-10 container mx-auto  ">
+        <div className="flex lg:flex-row justify-between flex-col lg:gap-8 gap-5">
             <div>
                 <h1 className="lg:text-6xl md:text-5xl text-3xl font-bold 2xl:leading-10 leading-0 lg:text-left text-center text-sky-600">
                    Noticias Santiaguinas
@@ -15,8 +15,8 @@ export const News = () => {
                     Entérate de todas las actividades y eventos de la Institución.
                 </h2>
             </div>
-            <div class="flex justify-center items-center">
-                    <button class="focus:outline-none 
+            <div className="flex justify-center items-center">
+                    <button className="focus:outline-none 
                     bg-sky-600 transition duration-150 ease-in-out hover:bg-sky-500 md:text-xl md:font-bold  
                     rounded text-white px-4 sm:px-10 border border-sky-500 py-2 sm:py-4 text-sm active:shadow-lg"
 

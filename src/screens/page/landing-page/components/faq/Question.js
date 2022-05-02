@@ -5,7 +5,7 @@ export const Question = ( { pregunta, respuesta } ) => {
     const [box1, setBox1] = useState(false);
 
     return (
-        <div  class="">
+        <div  className="">
 
             <div class={`group shadow-[0_4px_6px_-1px_rgba(0,0,0,0.4)]  rounded p-4 md:p-4  hover:cursor-pointer mb-5
             
@@ -13,14 +13,14 @@ export const Question = ( { pregunta, respuesta } ) => {
                 
                 onClick={() => setBox1(!box1)}>
     
-                <div class="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                     <div >
                         <h2 class={`group-hover:text-white text-base md:text-xl font-semibold leading-none select-none ${box1 ? ' text-white':'text-gray-800'}`}>
                             {pregunta}
                         </h2>
                     </div>
     
-                    <button  class="focus:outline-none cursor-pointer">
+                    <button  className="focus:outline-none cursor-pointer">
                         {box1 ? (
                             <i class={`fa-solid fa-caret-up fa-2x group-hover:text-white ${box1 ? 'text-white':'text-gray-800'}`}></i>
                         ) : (
@@ -32,9 +32,9 @@ export const Question = ( { pregunta, respuesta } ) => {
             </div>
     
             {box1 && (
-                <ul class=" px-4 mb-8 delay-">
+                <ul className=" px-4 mb-8 delay-">
                     <li>
-                        <p class="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">
+                        <p className="text-justify text-base md:text-xl leading-normal text-gray-600 mt-4 ">
                             {respuesta}
                         </p>
                     </li>

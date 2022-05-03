@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
-import { startLogin } from '../../../actions/auth';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
+import { startLogin } from '../../../redux/actions/auth';
 
 export const LoginScreen = () => {
 
@@ -18,7 +18,7 @@ export const LoginScreen = () => {
     // Formulario
 
     const [ formLoginValues, handleLoginInputChange ] = useForm({
-        loginEmail: 'santiago@gmail.com',
+        loginEmail: 'dantecito26@hotmail.com',
         loginPassword: '123456'
     });
 

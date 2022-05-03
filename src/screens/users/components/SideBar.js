@@ -21,7 +21,7 @@ export const SideBar = () => {
                     <img src={require('../../../images/Insignia.png')} class="w-10" alt="Avatar"/>
                     </div>
                     <div class="grow ml-3">
-                        <p class="text-sm font-bold text-sky-600">Santiago Apóstol</p>
+                        <p class="text-sm font-bold text-sky-700">Santiago Apóstol</p>
                     </div>
                 </div>
                 </a>

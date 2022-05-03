@@ -32,7 +32,7 @@ export const LoginScreen = () => {
 
 
         // Navigate a another screen ( admin, teacher, student )
-        /* navigate('/student',{replace: true}) */
+        navigate('/student',{replace: true})
     }
 
 

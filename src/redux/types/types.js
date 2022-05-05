@@ -12,3 +12,11 @@ export const types = {
     authLogout: '[auth] Logout'
 
 }
+
+
+export const typesUser = {
+    userAdmin: 'ADMINISTRADOR',
+    userSecretary: 'SECRETARIA',
+    userTeacher: 'DOCENTE',
+    userStudent: 'ESTUDIANTE'
+}

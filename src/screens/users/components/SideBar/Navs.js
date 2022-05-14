@@ -4,7 +4,7 @@ export const NavsAdmin = [
     {
         user: typesUser.userAdmin,
         name: 'Estudiantes',
-        link: '/admin',
+        link: '/students',
         icon: 'fa-solid fa-graduation-cap'
     },
     {

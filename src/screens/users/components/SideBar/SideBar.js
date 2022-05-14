@@ -45,10 +45,10 @@ export const SideBar = () => {
                 <div class="py-2 px-6">
                     <a href="#!">
                         <div class="flex items-center justify-center mx-auto">
-                            <div class="">
-                                <img src={require('../../../../images/Insignia.png')} class="w-8" alt="Avatar"/>
+                            <div class="bg-zinc-100 shadow-md w-9 h-9 flex items-center justify-center rounded-t-3xl rounded-bl-lg rounded-br-3xl ">
+                                <img src={require('../../../../images/Insignia.png')} class="w-5" alt="Avatar"/>
                             </div>
-                            <div class="ml-3">
+                            <div class="ml-2">
                                 <p class="text-sm font-bold text-sky-700">SANTIAGO APÓSTOL</p>
                             </div>
                         </div>

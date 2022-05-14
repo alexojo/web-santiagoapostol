@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
@@ -10,7 +12,10 @@ module.exports = {
       },
       borderRadius: {
         '50': '50px',
-      }
+      },
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [

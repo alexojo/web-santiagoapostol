@@ -1,8 +1,6 @@
-import { Listbox, Transition } from '@headlessui/react'
-import { SelectorIcon } from '@heroicons/react/solid'
 import React from 'react'
 
-export const StudentsScreen = () => {
+export const SectionScreen = () => {
     return (
         <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
 
@@ -10,29 +8,20 @@ export const StudentsScreen = () => {
                 {/* titulo */}
                 <div className="w-full sm:px-6 mb-7 mt-5 sm:flex items-center justify-between">
                     <div>
-                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Estudiantes</p>
+                        <p className="text-2xl font-bold leading-normal text-gray-800">1° Primaria 'A'</p>
                         <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
                     </div>
                     
                     
                     <div className='flex gap-4'>
-                        <a className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" 
-                            data-bs-toggle="collapse" 
-                            href="#collapseExample" 
-                            
-                            aria-controls="collapseExample">
-                            <i class="fa-solid fa-sliders mr-2"></i>
-                            Filtrar
-                            
-                        </a>
 
                         <a className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" 
                             data-bs-toggle="collapse" 
                             href="#collapseExample" 
                             
                             aria-controls="collapseExample">
-                            <i class="fa-solid fa-plus mr-2"></i>
-                            Agregar
+                            <i class="fa-solid fa-pencil mr-2"></i>
+                            Editar
                             
                         </a>
 
@@ -292,13 +281,18 @@ export const StudentsScreen = () => {
 
 
             {/* informacion personal */}
-            <div className='w-96 bg-white mr-6  my-5 shadow rounded-lg flex flex-col justify-between '>
+            <div className='w-[500px] bg-white mr-6  my-5 shadow rounded-lg flex flex-col justify-between '>
+                
+                <div>
+                    <div className='flex mb-3 border-b-2'>
+                        <button className='font-semibold leading-none text-sm text-gray-400 hover:text-gray-800 hover-uppercase mx-5 cursor-pointer py-3'>PERFIL</button>
+                        <button className='font-semibold leading-none text-sm text-gray-400 hover:text-gray-800 uppercase mx-5 cursor-pointer py-3'>AGREGAR</button>
+                    </div>
+                </div>
 
                 
                 <div className='overflow-auto'>
-                    <div className='mx-4 mt-5 mb-10 h-20 py-1 shadow-2xl shadow-slate-300/70 border-[1px] border-slate-100 rounded-md '>
-                        <p className='ml-4 font-semibold text-xs text-gray-600'>Asistencia</p>
-                    </div>
+                    
                     <div className='px-4 mt-4 '>
                         <div className='flex flex-row justify-between text-gray-800 text-sm'>
                             <p className='font-semibold '>ID: 123456</p>

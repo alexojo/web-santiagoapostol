@@ -7,10 +7,10 @@ export const SectionScreen = () => {
     let loginButton;
     if (Menu === "INFORMACIÓN") {
     loginButton = 
-        <div className='flex flex-col justify-between'>
+        <div className='flex flex-col justify-between overflow-auto h-full'>
             <div className='overflow-auto'>
                 
-                <div className='px-4 mt-4 '>
+                <div className='px-4  '>
                     <div className='flex flex-row justify-between text-gray-800 text-sm'>
                         <p className='font-semibold '>ID: 123456</p>
                         <i className='fa-solid fa-graduation-cap'></i>
@@ -80,7 +80,6 @@ export const SectionScreen = () => {
 
                 </div>
             </div>
-            
             <div className='mt-5 px-4 border-t-[1px] my-2 flex items-center justify-center'>   
                 <button 
                 className='my-3 shadow-lg bg-slate-200 shadow-gray-300/40 text-xs font-semibold text-sky-600 py-2 px-8 rounded-lg align-middle hover:text-sky-700 hover:bg-slate-300 transition duration-300 ease-in-out'
@@ -92,10 +91,11 @@ export const SectionScreen = () => {
                 </button>
                 
             </div>          
-        </div>
+        </div>  
+
     } else {
     loginButton = 
-        <div className='overflow-auto'> 
+        <div className='overflow-auto h-full '> 
             <div className='px-4 mt-4 '>
                 
                 <div className="mb-4 sm:px-6">
@@ -110,17 +110,78 @@ export const SectionScreen = () => {
                         />
                     </div>
                 </div>
-
             </div>
+            <div className="px-2 overflow-auto">
+                <div className="bg-white shadow-lg px-4 pt-4  pb-5  overflow-auto rounded-lg border-[1px] border-gray-100">
+                    <table className="whitespace-nowrap">
+                        <thead className='hidden'>
+                            <tr className="h-10 text-sm leading-none text-gray-800">
+                                <th className="font-bold text-left pl-2">Nombre</th>
+                                <th className="font-bold text-left pl-2">ID</th>
+                                <th className="font-bold text-left pl-7">Clase</th>
+                                <th className="font-bold text-left pl-2">Edad</th>
+                                <th className="font-bold text-left pl-2">Género</th>
+                                <th className="font-bold text-left pl-2">Contacto</th>
+                            </tr>
+                        </thead>
+                        <tbody className="w-full">
+                            <tr className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
+                                
+        
+                                <td className="pl-2 cursor-pointer">
+                                    <div className="flex items-center">
+                                        <div className="w-10 h-10">
+                                            <img className="shadow-md h-full rounded-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
+                                        </div>
+                                        <div className="pl-2">
+                                            <p className="font-medium">Adrian Gonzáles Carpio</p>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td className="pl-2 hidden">
+                                    <p className="font-normal">76222661</p>
+
+                                </td>
+                                <td className="pl-7">
+                                    <p className="font-normal">5° Primaria 'A'</p>
+                                </td>
+                                <td className="pl-2 hidden">
+                                    <p className="font-normal">15</p>
+                                </td>
+                                <td className="pl-2 hidden">
+                                    <p className="font-normal">Masculino</p>
+                                </td>
+
+                                
+
+                                <td className="pl-2 hidden">
+                                    <div className='flex flex-row gap-3 text-sky-600'>
+                                        <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
+                                            <i class="fa-solid fa-phone  fa-sm"/>
+                                        </div>
+                                        <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
+                                            <i class="fa-solid fa-envelope  fa-sm"/>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                                                 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>;
     }
 
 
 
     return (
-        <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
+        <div className='ml-60 max-w-prose h-screen flex overflow-auto bg-gray-100'>
 
-            <div className='w-full flex flex-col items-start'>
+            <div className='w-screen flex flex-col items-start'>
                 {/* titulo */}
                 <div className="w-full sm:px-6 mb-7 mt-5 sm:flex items-center justify-between">
                     <div>
@@ -399,22 +460,20 @@ export const SectionScreen = () => {
             {/* informacion personal */}
             <div className='w-[500px] bg-white mr-6  my-5 shadow rounded-lg flex flex-col '>
                 
-                <div>
-                    <div className='flex mb-3 '>
-                        <button className='font-semibold leading-none text-sm text-gray-400 hover:text-sky-600 border-b-2 hover:border-sky-600 uppercase px-5 cursor-pointer py-3 select-none'
-                                onClick={() => setMenu("INFORMACIÓN")}
-                        >INFORMACIÓN</button>
-                        
-                        <button className='font-semibold leading-none text-sm text-gray-400 hover:text-sky-600 border-b-2 hover:border-sky-600 uppercase px-5 cursor-pointer py-3 select-none'
-                                onClick={() => setMenu("GUARDAR")}
-                        >AGREGAR</button>
-                        <div className='w-full border-b-2'></div>
-                    </div>
+                <div className='flex mb-3 w-full'>
+                    <button className='font-semibold leading-none text-sm text-gray-400 hover:text-sky-600 border-b-2 hover:border-sky-600 uppercase px-5 cursor-pointer py-3 select-none'
+                            onClick={() => setMenu("INFORMACIÓN")}
+                    >INFORMACIÓN</button>
+                    
+                    <button className='font-semibold leading-none text-sm text-gray-400 hover:text-sky-600 border-b-2 hover:border-sky-600 uppercase px-5 cursor-pointer py-3 select-none'
+                            onClick={() => setMenu("GUARDAR")}
+                    >AGREGAR</button>
+                    <div className='w-full border-b-2'></div>
                 </div>
-                <div className='h-full'>
-                    { loginButton }     
 
-                </div>
+                {loginButton}
+                
+
                 
             </div>
 

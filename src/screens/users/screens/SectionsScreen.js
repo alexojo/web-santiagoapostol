@@ -22,7 +22,7 @@ export const SectionsScreen = () => {
                 {/* titulo */}
                 <div className="w-full sm:px-6 mb-7 mt-5 sm:flex items-center justify-between">
                     <div>
-                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Estudiantes</p>
+                        <p className="text-2xl font-bold leading-normal text-gray-800">Secciones</p>
                         <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
                     </div>
                     

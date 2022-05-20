@@ -12,7 +12,7 @@ export const LoginScreen = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate('/')
+        navigate('/page')
     }
 
     // Formulario

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link, BrowserRouter, Navigate } from "react-router-dom";
 import { SideBar } from '../screens/users/components/SideBar/SideBar';
 
 import { AdminScreen } from '../screens/users/screens/admin/AdminScreen';
@@ -24,7 +24,8 @@ export const UsersRouter = () => {
                     <Route path="section" element={<SectionScreen />} />
                     <Route path="teachers" element={<TeachersScreen />} /> 
                     <Route path="students" element={<StudentsScreen />} /> 
-
+                    <Route path="*" element={<Navigate to="admin" replace />} />
+                    
                 </Routes>
 
             </div>

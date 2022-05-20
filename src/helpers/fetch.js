@@ -24,7 +24,6 @@ export const fetchConToken= ( endpoint, data, method = 'GET' ) => {
     const url = `${ baseUrl }/${ endpoint }`; // localhost:4000/api/{authLogin}
 
     const token = localStorage.getItem('token') || '';
-
     if ( method === 'GET' ){
         return fetch( url, {
             method,

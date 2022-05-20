@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 
 import { useNavigate } from 'react-router-dom'// Hook que cambia la locacion
+import { startLogout } from '../../../../redux/actions/auth';
 import { typesUser } from '../../../../redux/types/types';
 import { NavsAdmin, NavsSecretary } from './Navs';
 
@@ -10,13 +12,13 @@ import { NavsAdmin, NavsSecretary } from './Navs';
 export const SideBar = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const handleBack = () => {
-        navigate('/login')
+    const handleLogout = () => {
+        dispatch( startLogout() );
     }
 
     const rol = "ADMINISTRADOR";
-    
     const [navs, setNavs] = useState([])
 
     useEffect(() => {
@@ -36,7 +38,8 @@ export const SideBar = () => {
         }
     }, [])
     
-    
+    const {name} = useSelector( state => state.auth );
+
 
     return (
         <div class="w-60 h-full shadow-md bg-white absolute flex flex-col justify-between" id="sidenavSecExample">
@@ -97,7 +100,7 @@ export const SideBar = () => {
                             </div>
                         </a>
                     </li>
-                    <li class="relative" onClick={ handleBack }>
+                    <li class="relative" onClick={ handleLogout }>
                         <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-zinc-400 font-medium text-ellipsis whitespace-nowrap rounded hover:text-sky-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
                             <i class="fa-solid fa-right-from-bracket w-3 h-3 mr-3"></i>
                             <span>Salir </span>
@@ -117,7 +120,7 @@ export const SideBar = () => {
                             <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-full w-10 border-[3px] border-white shadow-md" alt="Avatar"/>
                         </div>
                         <div class="ml-3">
-                            <p class="text-left text-sm font-semibold text-gray-700">Dante R.</p>
+                            <p class="text-left text-sm font-semibold text-gray-700">{ name }</p>
                             <p class="text-xs font-normal text-zinc-400">Administrador</p>
                         </div>
                     </div>

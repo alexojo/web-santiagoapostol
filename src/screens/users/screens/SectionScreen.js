@@ -179,7 +179,7 @@ export const SectionScreen = () => {
 
 
     return (
-        <div className='ml-60 max-w-prose h-screen flex overflow-auto bg-gray-100'>
+        <div className='ml-60 h-screen flex overflow-auto bg-gray-100'>
 
             <div className='w-screen flex flex-col items-start'>
                 {/* titulo */}

@@ -8,7 +8,7 @@ export const FaQ = () => {
     
     return (
 
-        <div class='bg-sky-50'>
+        <div className='bg-sky-50'>
             <div className="absolute w-full h-40 md:h-60 object-center object-fit z-0 bg-sky-600"></div>
             <div className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20  pb-10">
 

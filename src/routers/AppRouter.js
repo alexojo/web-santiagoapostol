@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector} from 'react-redux';
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { startChecking } from '../redux/actions/auth';
 import { LoginScreen } from '../screens/auth/login/LoginScreen';
 
@@ -13,7 +13,7 @@ export const AppRouter = () => {
 
     const dispatch = useDispatch();
 
-    const { checking, uid } = useSelector( state => state.auth );
+    const { uid } = useSelector( state => state.auth );
 
     useEffect(() => {
         
@@ -34,7 +34,12 @@ export const AppRouter = () => {
                     </PublicRoute>
                 } 
                 />
-                
+                <Route path="/login" element={
+                    <PublicRoute uid={ uid }>
+                        <LoginScreen />
+                    </PublicRoute>
+                } 
+                />
 
                 <Route path="/*"  element ={
                     <PrivateRoute uid={ uid }>
@@ -42,12 +47,7 @@ export const AppRouter = () => {
                     </PrivateRoute>
                 }
                 />
-                <Route path="/login" element={
-                    <PublicRoute uid={ uid }>
-                        <LoginScreen />
-                    </PublicRoute>
-                } 
-                />
+                
                 
             </Routes>
         </BrowserRouter>

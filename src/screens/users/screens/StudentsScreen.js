@@ -1,5 +1,3 @@
-import { Listbox, Transition } from '@headlessui/react'
-import { SelectorIcon } from '@heroicons/react/solid'
 import React from 'react'
 
 export const StudentsScreen = () => {
@@ -21,7 +19,7 @@ export const StudentsScreen = () => {
                             href="#collapseExample" 
                             
                             aria-controls="collapseExample">
-                            <i class="fa-solid fa-sliders mr-2"></i>
+                            <i className="fa-solid fa-sliders mr-2"></i>
                             Filtrar
                             
                         </a>
@@ -31,7 +29,7 @@ export const StudentsScreen = () => {
                             href="#collapseExample" 
                             
                             aria-controls="collapseExample">
-                            <i class="fa-solid fa-plus mr-2"></i>
+                            <i className="fa-solid fa-plus mr-2"></i>
                             Agregar
                             
                         </a>
@@ -41,8 +39,8 @@ export const StudentsScreen = () => {
                 {/* formulario */}
                 <div className="collapse w-full sm:px-6 mt-2 -translate-y-5" id="collapseExample">
     
-                    <div class= " px-4 md:px-10 py-4  rounded-lg shadow bg-white">
-                        <div class="text-sm font-normal leading-normal text-gray-400">
+                    <div className= " px-4 md:px-10 py-4  rounded-lg shadow bg-white">
+                        <div className="text-sm font-normal leading-normal text-gray-400">
                             Complete el siguiente formulario para agregar una nueva sección
                         </div>
                         <form >
@@ -95,7 +93,7 @@ export const StudentsScreen = () => {
                     
                     <div className="relative flex">
                         
-                        <i class="fa-solid fa-magnifying-glass absolute z-20 cursor-pointer pt-2.5 left-4 text-gray-400"></i>
+                        <i className="fa-solid fa-magnifying-glass absolute z-20 cursor-pointer pt-2.5 left-4 text-gray-400"></i>
 
                         <input className="form-control block w-full px-10 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
                                 type="text"
@@ -125,7 +123,7 @@ export const StudentsScreen = () => {
                                     <td className="pl-7 cursor-pointer">
                                         <div className="flex items-center">
                                             <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
+                                                <img className="shadow-md w-full h-full rounded-full" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
                                             </div>
                                             <div className="pl-2">
                                                 <p className="font-medium">Adrian Gonzáles Carpio</p>
@@ -152,10 +150,10 @@ export const StudentsScreen = () => {
                                     <td className="pl-7">
                                         <div className='flex flex-row gap-3 text-sky-600'>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-phone  fa-sm"/>
+                                                <i className="fa-solid fa-phone  fa-sm"/>
                                             </div>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-envelope  fa-sm"/>
+                                                <i className="fa-solid fa-envelope  fa-sm"/>
                                             </div>
                                         </div>
                                     </td>
@@ -166,7 +164,7 @@ export const StudentsScreen = () => {
                                     <td className="pl-7 cursor-pointer">
                                         <div className="flex items-center">
                                             <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full object-cover" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                                                <img className="shadow-md w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
                                             </div>
                                             <div className="pl-2">
                                                 <p className="font-medium">Alex Tapia Creo</p>
@@ -193,10 +191,10 @@ export const StudentsScreen = () => {
                                     <td className="pl-7">
                                         <div className='flex flex-row gap-3 text-sky-600'>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-phone  fa-sm"/>
+                                                <i className="fa-solid fa-phone  fa-sm"/>
                                             </div>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-envelope  fa-sm"/>
+                                                <i className="fa-solid fa-envelope  fa-sm"/>
                                             </div>
                                         </div>
                                     </td>
@@ -207,7 +205,7 @@ export const StudentsScreen = () => {
                                     <td className="pl-7 cursor-pointer">
                                         <div className="flex items-center">
                                             <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
+                                                <img className="shadow-md w-full h-full rounded-full" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
                                             </div>
                                             <div className="pl-2">
                                                 <p className="font-medium">Adrian Gonzáles Carpio</p>
@@ -234,10 +232,10 @@ export const StudentsScreen = () => {
                                     <td className="pl-7">
                                         <div className='flex flex-row gap-3 text-sky-600'>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-phone  fa-sm"/>
+                                                <i className="fa-solid fa-phone  fa-sm"/>
                                             </div>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-envelope  fa-sm"/>
+                                                <i className="fa-solid fa-envelope  fa-sm"/>
                                             </div>
                                         </div>
                                     </td>
@@ -248,7 +246,7 @@ export const StudentsScreen = () => {
                                     <td className="pl-7 cursor-pointer">
                                         <div className="flex items-center">
                                             <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full object-cover" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                                                <img className="shadow-md w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
                                             </div>
                                             <div className="pl-2">
                                                 <p className="font-medium">Alex Tapia Creo</p>
@@ -275,10 +273,10 @@ export const StudentsScreen = () => {
                                     <td className="pl-7">
                                         <div className='flex flex-row gap-3 text-sky-600'>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-phone  fa-sm"/>
+                                                <i className="fa-solid fa-phone  fa-sm"/>
                                             </div>
                                             <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i class="fa-solid fa-envelope  fa-sm"/>
+                                                <i className="fa-solid fa-envelope  fa-sm"/>
                                             </div>
                                         </div>
                                     </td>
@@ -308,7 +306,7 @@ export const StudentsScreen = () => {
                         <div className='flex flex-col items-center mt-4'>
                             
                             <div className="w-28 h-28 shadow-lg bord border-[5px] border-white shadow-gray-300 rounded-full">
-                                <img className="w-full h-full rounded-full object-cover" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                                <img className="w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
                             </div>
                             <p className='font-bold leading-none text-base text-sky-600 mt-4'>Alex Tapia Creo</p>
                             <p className='font-medium leading-none text-xs text-sky-600 mt-2'>5° Primaria A</p>
@@ -316,10 +314,10 @@ export const StudentsScreen = () => {
 
                             <div className='flex flex-row gap-3 text-sky-600 mt-2'>
                                 <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                    <i class="fa-solid fa-phone  fa-sm"/>
+                                    <i className="fa-solid fa-phone  fa-sm"/>
                                 </div>
                                 <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                    <i class="fa-solid fa-envelope  fa-sm"/>
+                                    <i className="fa-solid fa-envelope  fa-sm"/>
                                 </div>
                             </div>
                         </div>
@@ -356,12 +354,12 @@ export const StudentsScreen = () => {
                             <p className='font-bold'>Estudiantes del mismo salón</p>
 
                             <div className="flex flex-grow items-center mt-2">
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(9).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(9).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
+                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
                                 
                                 <p className='ml-2 text-xs mt-1 text-sky-600'>+12 más</p>
                             </div>
@@ -376,7 +374,7 @@ export const StudentsScreen = () => {
                     className='my-3 shadow-lg bg-slate-200 shadow-gray-300/40 text-xs font-semibold text-sky-600 py-2 px-8 rounded-lg align-middle hover:text-sky-700 hover:bg-slate-300 transition duration-300 ease-in-out'
                     data-mdb-ripple="true" data-mdb-ripple-color="info">
                         
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+                    <i className="fa-solid fa-arrow-up-right-from-square mr-2"></i>
                     Más info
                     
                     </button>

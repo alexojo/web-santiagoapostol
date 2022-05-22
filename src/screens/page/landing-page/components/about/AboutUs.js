@@ -18,9 +18,9 @@ export const AboutUs = () => {
 
             <div data-aos="zoom-in" data-aos-duration="1000" 
                 className="lg:mt-14 sm:mt-10 mt-12">
-                <img className="lg:block hidden w-full rounded-lg" src="https://i.ibb.co/0MTHGy2/DSC-0019-3.jpg object-cover" alt="Group of people Chilling" />
-                <img className="lg:hidden sm:block hidden w-full rounded-lg" src="https://i.ibb.co/Pm3yZhf/DSC-0019-2.jpg object-cover" alt="Group of people Chilling" />
-                <img className="sm:hidden block w-full rounded-lg" src="https://i.ibb.co/pwfNsK4/DSC-0019-4.jpg object-cover" alt="Group of people Chilling" />
+                <img className="lg:block hidden w-full rounded-lg" src="https://i.ibb.co/0MTHGy2/DSC-0019-3.jpg object-cover" alt="Group of people Chilling1" />
+                <img className="lg:hidden sm:block hidden w-full rounded-lg" src="https://i.ibb.co/Pm3yZhf/DSC-0019-2.jpg object-cover" alt="Group of people Chilling2" />
+                <img className="sm:hidden block w-full rounded-lg" src="https://i.ibb.co/pwfNsK4/DSC-0019-4.jpg object-cover" alt="Group of people Chilling3" />
             </div>
 
             <div className="lg:mt-16 sm:mt-12 mt-16 flex lg:flex-row justify-between flex-col lg:gap-8 gap-12">

@@ -30,6 +30,12 @@ export const NavsAdmin = [
         name: 'Cursos',
         link: '/admin',
         icon: 'fa-solid fa-book'
+    },
+    {
+        user: typesUser.userAdmin,
+        name: 'Usuarios',
+        link: '/users',
+        icon: 'fa-solid fa-user'
     }
 ]
 

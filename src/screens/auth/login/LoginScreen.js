@@ -30,9 +30,12 @@ export const LoginScreen = () => {
         
         dispatch( startLogin( loginEmail, loginPassword ) )
 
+        const lastPath = localStorage.getItem('lastPath') || '/page';
 
         // Navigate a another screen ( admin, teacher, student )
-        navigate('/student',{replace: true})
+        navigate( lastPath, {
+            replace: true
+        });
     }
 
 

@@ -1,22 +1,54 @@
+import React from 'react'
+
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-const people = [
-  { name: 'Administrador' },
-  { name: 'Docente' },
-  { name: 'Secretaria' },
-  { name: 'Estudiante' }
-]
+export const Input = ({label, basis, name, value ="", placeholder, type = "text", onChange }) => {
+    return (
+        <div className={`mb-4 grow shrink ${basis}`}>    
+            <label className="block text-xs font-medium text-gray-700 ml-1">{ label }</label>
+            <input                                                
+                className="mt-[1px] block w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-2 focus:outline-none"
+                placeholder= { placeholder }
+                name= { name }
+                value = { value }
+                onChange = { onChange }
+                type = { type }
+            />
+        </div>
+    )
+}
 
-export const AdminScreen = () => {
+export const InputSearch = ({label, name, value ="", placeholder, onChange }) => {
+    return (
+        <div className="mb-2 grow shrink basis-1/4">    
+            <label className="block text-xs font-medium text-gray-700 ml-1">{ label }</label>
+            <div class="flex mt-[1px]">
+                <input 
+                    className=" w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white border-y border-l  border-gray-300 rounded-l-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-y-2 focus:border-l-2 focus:outline-none"
+                    placeholder="Buscar"/>
+                <button class=" bg-slate-200 shadow-gray-300/40 shadow-lg font-semibold text-gray-700 pl-2 pr-1 rounded-r-md hover:text-sky-600 hover:bg-slate-300 transition duration-300 ease-in-out"
+                        type="button"
+                        data-mdb-ripple="true"
+                        data-mdb-ripple-color="light">
+                    <i className="fa-solid fa-magnifying-glass mr-2"></i>    
+                </button>
+            </div>
+        </div>
+    )
+}
+
+
+
+export const InputListbox = ({ label, basis, people }) => {
 
     const [selected, setSelected] = useState(people[0])
 
     return (
-        <div className='pl-60 h-screen flex items-center z-20'>
-           <div className="fixed top-16 w-72">
-              <Listbox value={selected} onChange={setSelected}>
+        <div className={`mb-4 grow shrink ${basis}`}>
+            <label className="block text-xs font-medium text-gray-700 ml-1">{ label }</label>
+            <Listbox value={selected} onChange={setSelected}>
                 <div className="relative mt-1">
                   <Listbox.Button className="mt-[1px] block w-full px-3 py-1.5 text-sm text-left font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-2 focus:outline-none">
                     <span className="block truncate">{selected.name}</span>
@@ -65,8 +97,8 @@ export const AdminScreen = () => {
                     </Listbox.Options>
                   </Transition>
                 </div>
-              </Listbox>
-            </div>
-        </div>
+            </Listbox>
+        </div>  
+        
     )
 }

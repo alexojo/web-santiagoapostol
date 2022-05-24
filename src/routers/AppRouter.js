@@ -25,30 +25,27 @@ export const AppRouter = () => {
 
     return (
         <BrowserRouter>
+            
             <Routes>
                 
-
-                <Route path="/page" element={
-                    <PublicRoute uid={ uid }>
-                        <LandingPage />
-                    </PublicRoute>
-                } 
-                />
+                {/* <Route path="/login" element={<LoginScreen />} /> */}
                 <Route path="/login" element={
                     <PublicRoute uid={ uid }>
                         <LoginScreen />
                     </PublicRoute>
                 } 
                 />
+                
 
-                <Route path="/*"  element ={
+                <Route path="/*" element={ 
                     <PrivateRoute uid={ uid }>
                         <UsersRouter />
                     </PrivateRoute>
-                }
+                } 
                 />
-                
-                
+
+                {/* <Route path="/*" element={ <DashboardRoutes />  } /> */}
+
             </Routes>
         </BrowserRouter>
     )

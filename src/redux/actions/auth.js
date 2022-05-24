@@ -23,6 +23,27 @@ export const startLogin = ( email, password ) => {
     }
 }
 
+export const startRegister = ( formValues ) => {
+    return async( dispatch ) => {
+        console.log( formValues )
+        const resp = await fetchSinToken( 'auth/new-user', formValues , 'POST' );
+        const body = await resp.json();
+        
+        if( body.ok ) {
+            localStorage.setItem('token',body.token )
+            localStorage.setItem('token-init-date', new Date().getTime() );
+
+            dispatch( login({
+                uid: body.uid,
+                name: body.name
+            }) )
+        } else{
+            console.log( body )
+        }
+
+    }    
+}
+
 export const startChecking = () => {
 
     return async( dispatch ) => {

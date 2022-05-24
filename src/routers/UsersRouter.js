@@ -23,7 +23,8 @@ export const UsersRouter = () => {
                     <Route path="section" element={<SectionScreen />} />
                     <Route path="teachers" element={<TeachersScreen />} /> 
                     <Route path="students" element={<StudentsScreen />} /> 
-                    <Route path="users" element={<UsersScreen />} />                     
+                    <Route path="users" element={<UsersScreen />} />
+                    <Route path="/" element={<StudentsScreen />} />                      
                 </Routes>
 
             </div>

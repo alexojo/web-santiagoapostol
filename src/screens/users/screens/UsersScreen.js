@@ -1,14 +1,55 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useDispatch } from 'react-redux';
+import { useForm } from '../../../hooks/useForm';
+import { startRegister } from '../../../redux/actions/auth';
+import { Input, InputListbox, InputSearch } from '../components/Input'
 
 export const UsersScreen = () => {
+    const dispatch = useDispatch();
+
+    const [ formValues, handleInputChange, setValues ] = useForm({  
+        dni: '762222661',
+        nombre: 'a',
+        apellidoPaterno: 'a',
+        apellidoMaterno: 'a',
+        direccion:'a',
+        fechaNacimiento:'a',
+        correoElectronico:'a',
+        nroCelular:'a',
+        rol:'a',
+        password:'123456',
+        urlFoto:'a'
+    });
+    const { dni, password, nombre, apellidoPaterno, apellidoMaterno, direccion, fechaNacimiento, correoElectronico, nroCelular, rol, urlFoto } = formValues;
+
+    const people = [
+        { name: 'Administrador' },
+        { name: 'Docente' },
+        { name: 'Secretaria' },
+        { name: 'Estudiante' }
+    ]
+
+    const inputFile = useRef(null) 
+
+    const onButtonClick = () => {
+    // `current` points to the mounted file input element
+    inputFile.current.click();
+    };
+
+    const RegisterUsuario = ( e ) =>{
+        e.preventDefault();
+        console.log("x")
+        dispatch( startRegister( formValues ) )
+    }
+
     return (
         <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
 
-            <div className='w-full flex flex-col items-start'>
+            <div className='w-full flex flex-col items-start mb-5'>
                 {/* titulo */}
                 <div className="w-full sm:px-6 mb-7 mt-5 sm:flex items-center justify-between">
                     <div>
-                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Estudiantes</p>
+                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Usuarios</p>
                         <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
                     </div>
                     
@@ -43,47 +84,58 @@ export const UsersScreen = () => {
                         <div className="text-sm font-normal leading-normal text-gray-400">
                             Complete el siguiente formulario para agregar una nueva sección
                         </div>
-                        <form >
-                            <div className='flex flex-wrap just gap-4 mt-4'>
+                        <form onSubmit={ RegisterUsuario }>
+                            
+                            <div className='flex mt-4'>
+                                <div className='w-full'>
+                                    <div className='flex flex-row space-x-4 basis'>
+                                        <InputSearch label="DNI" name="dni" placeholder="********" value = { dni } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Nombre:" name="nombre" placeholder="" value = { nombre } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Ap. Paterno:" name="apellidoPaterno" placeholder="" value = { apellidoPaterno } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Ap. Materno:" name="apellidoMaterno" placeholder="" value = { apellidoMaterno } onChange = { handleInputChange }/>
+                                    </div>
+                                    <div className='flex flex-wrap gap-x-4 bass'>
+                                        
+                                        <Input basis="basis-2/4" label="Dirección:" name="direccion" placeholder="" value = { direccion } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Fecha Nacimiento:" name="fechaNacimiento" placeholder="" value = { fechaNacimiento } onChange = { handleInputChange }/>
+                                        
+                                        <Input basis="basis-1/4" label="Correo electrónico:" name="correoElectronico" placeholder="" value = { correoElectronico } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Nro. Celular:" name="nroCelular" placeholder="" value = { nroCelular } onChange = { handleInputChange }/>
+                                        <InputListbox basis="basis-1/4" label="Rol:"  people = {people}/>
+                                    </div>
 
-                                <div className="mb-2 grow shrink basis-36">    
-                                    <label className="block text-sm font-medium text-gray-700">Price</label>
-                                    <input                                                
-                                        className="form-control mt-1 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
-                                        type="text"
-                                        placeholder="1"
-                                        name="loginEmail"    
-                                    />
                                 </div>
                                 
-                                <div className="mb-2 grow shrink basis-36">    
-                                    <label className="block text-sm font-medium text-gray-700">Price</label>
-                                    <input                                                
-                                        className="form-control mt-1 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
-                                        type="text"
-                                        placeholder="1"
-                                        name="loginEmail"    
-                                    />
+                                <div className='mt-4 ml-4 w-56'>
+                                    <img src='https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilu.jpg?ver=6'
+                                        className='border-x border-t border-gray-300 rounded-t-md'/>
+                                    <input type='file' id='file' ref={inputFile} style={{display: 'none'}}/>
+                                    <button
+                                        className="bg-slate-200  w-full shadow-lg shadow-gray-300/40 px-6 py-2.5 text-gray-700 font-semibold text-xs leading-tight uppercase rounded-b-md  hover:text-sky-600 hover:bg-slate-300 focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3"
+                                        type="button"
+                                        data-mdb-ripple="true"
+                                        data-mdb-ripple-color="light" 
+                                        onClick={onButtonClick}                               
+                                        >
+                                        CARGAR IMAGEN
+                                    </button>
                                 </div>
-                                
-                                
-                                
+
                             </div>
+                            
 
                             <div className="text-center pb-1">
                                 <button
-                                className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/6 mb-3"
-                                type="button"
+                                className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/6 mb-3"
+                                type = "submit"
                                 data-mdb-ripple="true"
-                                data-mdb-ripple-color="light"
-
-                                
+                                data-mdb-ripple-color="light"                                
                                 >
                                 Ingresar
                                 </button>
                             </div>
                                         
-                                    </form>
+                        </form>
                     </div>
                 
 
@@ -93,7 +145,7 @@ export const UsersScreen = () => {
                     
                     <div className="relative flex">
                         
-                        <i className="fa-solid fa-magnifying-glass absolute z-20 cursor-pointer pt-2.5 left-4 text-gray-400"></i>
+                        <i className="fa-solid fa-magnifying-glass absolute cursor-pointer pt-2.5 left-4 text-gray-400"></i>
 
                         <input className="form-control block w-full px-10 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none"
                                 type="text"

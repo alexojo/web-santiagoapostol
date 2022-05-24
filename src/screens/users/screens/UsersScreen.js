@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 import { startRegister } from '../../../redux/actions/auth';
@@ -7,21 +7,6 @@ import { Input, InputListbox, InputSearch } from '../components/Input'
 export const UsersScreen = () => {
     const dispatch = useDispatch();
 
-    const [ formValues, handleInputChange, setValues ] = useForm({  
-        dni: '762222661',
-        nombre: 'a',
-        apellidoPaterno: 'a',
-        apellidoMaterno: 'a',
-        direccion:'a',
-        fechaNacimiento:'a',
-        correoElectronico:'a',
-        nroCelular:'a',
-        rol:'a',
-        password:'123456',
-        urlFoto:'a'
-    });
-    const { dni, password, nombre, apellidoPaterno, apellidoMaterno, direccion, fechaNacimiento, correoElectronico, nroCelular, rol, urlFoto } = formValues;
-
     const people = [
         { name: 'Administrador' },
         { name: 'Docente' },
@@ -29,18 +14,39 @@ export const UsersScreen = () => {
         { name: 'Estudiante' }
     ]
 
+
+    const [ formValues, handleInputChange, setValues ] = useForm({  
+        dni: '76222661',
+        nombre: 'a',
+        apellidoPaterno: 'a',
+        apellidoMaterno: 'a',
+        direccion:'a',
+        fechaNacimiento:'',
+        correoElectronico:'a',
+        nroCelular:'a',
+        rol: 'a',
+        password:'123456',
+        urlFoto:'a'
+    });
+    const { dni, password, nombre, apellidoPaterno, apellidoMaterno, direccion, fechaNacimiento, correoElectronico, nroCelular, rol, urlFoto } = formValues;
+
+    
     const inputFile = useRef(null) 
 
     const onButtonClick = () => {
     // `current` points to the mounted file input element
     inputFile.current.click();
     };
+    const [selected, setSelected] = useState(people[0]);
 
     const RegisterUsuario = ( e ) =>{
         e.preventDefault();
-        console.log("x")
-        dispatch( startRegister( formValues ) )
+        console.log({...formValues, rol: selected.name});
+        dispatch( startRegister( {...formValues, rol: selected.name} ) )
     }
+
+    
+    
 
     return (
         <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
@@ -97,11 +103,11 @@ export const UsersScreen = () => {
                                     <div className='flex flex-wrap gap-x-4 bass'>
                                         
                                         <Input basis="basis-2/4" label="Dirección:" name="direccion" placeholder="" value = { direccion } onChange = { handleInputChange }/>
-                                        <Input basis="basis-1/4" label="Fecha Nacimiento:" name="fechaNacimiento" placeholder="" value = { fechaNacimiento } onChange = { handleInputChange }/>
+                                        <Input basis="basis-1/4" label="Fecha Nacimiento:" name="fechaNacimiento" type="date" placeholder="" value = { fechaNacimiento } onChange = { handleInputChange }/>
                                         
                                         <Input basis="basis-1/4" label="Correo electrónico:" name="correoElectronico" placeholder="" value = { correoElectronico } onChange = { handleInputChange }/>
                                         <Input basis="basis-1/4" label="Nro. Celular:" name="nroCelular" placeholder="" value = { nroCelular } onChange = { handleInputChange }/>
-                                        <InputListbox basis="basis-1/4" label="Rol:"  people = {people}/>
+                                        <InputListbox basis="basis-1/4" label="Rol:" people = {people} selected={ selected } setSelected = {setSelected }/>
                                     </div>
 
                                 </div>

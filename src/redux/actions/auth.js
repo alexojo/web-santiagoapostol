@@ -2,10 +2,10 @@ import { fetchConToken, fetchSinToken } from "../../helpers/fetch"
 import { types } from "../types/types";
 
 
-export const startLogin = ( email, password ) => {
+export const startLogin = ( dni, password ) => {
     return async( dispatch ) => {
         
-        const resp = await fetchSinToken( 'auth', {email, password}, 'POST' );
+        const resp = await fetchSinToken( 'auth', {dni, password}, 'POST' );
         const body = await resp.json();
         
         if( body.ok ) {
@@ -14,7 +14,7 @@ export const startLogin = ( email, password ) => {
 
             dispatch( login({
                 uid: body.uid,
-                name: body.name
+                nombre: body.nombre
             }) )
         } else{
             console.log( body )
@@ -35,7 +35,7 @@ export const startRegister = ( formValues ) => {
 
             dispatch( login({
                 uid: body.uid,
-                name: body.name
+                nombre: body.nombre
             }) )
         } else{
             console.log( body )

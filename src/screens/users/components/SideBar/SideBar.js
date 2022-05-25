@@ -36,7 +36,7 @@ export const SideBar = () => {
         }
     }, [])
     
-    const {name} = useSelector( state => state.auth );
+    const { nombre } = useSelector( state => state.auth );
 
 
     return (
@@ -118,7 +118,7 @@ export const SideBar = () => {
                             <img  src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" className="rounded-full w-10 border-[3px] border-white shadow-md" alt="Avatar"/>
                         </div>
                         <div className="ml-3">
-                            <p className="text-left text-sm font-semibold text-gray-700">{ name }</p>
+                            <p className="text-left text-sm font-semibold text-gray-700">{ nombre }</p>
                             <p className="text-xs font-normal text-zinc-400">Administrador</p>
                         </div>
                     </div>

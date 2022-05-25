@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 import { startRegister } from '../../../redux/actions/auth';
+import { RegisterUser } from '../../../redux/actions/user';
 import { Input, InputListbox, InputSearch } from '../components/Input'
 
 export const UsersScreen = () => {
@@ -42,7 +43,11 @@ export const UsersScreen = () => {
     const RegisterUsuario = ( e ) =>{
         e.preventDefault();
         console.log({...formValues, rol: selected.name});
-        dispatch( startRegister( {...formValues, rol: selected.name} ) )
+        
+        RegisterUser({...formValues, rol: selected.name})
+        .catch(console.error)
+        .then((res) => console.log(res))
+        
     }
 
     

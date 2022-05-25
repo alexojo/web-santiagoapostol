@@ -1,13 +1,19 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, Fragment } from 'react'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 import { startRegister } from '../../../redux/actions/auth';
 import { RegisterUser } from '../../../redux/actions/user';
 import { Input, InputListbox, InputSearch } from '../components/Input'
+import { Dialog, Transition } from '@headlessui/react'
+import { ExclamationIcon } from '@heroicons/react/outline'
+import { Modal } from '../components/Modal';
 
 export const UsersScreen = () => {
-    const dispatch = useDispatch();
 
+    const [open, setOpen] = useState(true)
+
+    const cancelButtonRef = useRef(null)
+    
     const people = [
         { name: 'Administrador' },
         { name: 'Docente' },
@@ -45,8 +51,9 @@ export const UsersScreen = () => {
         console.log({...formValues, rol: selected.name});
         
         RegisterUser({...formValues, rol: selected.name})
-        .catch(console.error)
         .then((res) => console.log(res))
+        .catch(err => { })
+        
         
     }
 
@@ -55,6 +62,8 @@ export const UsersScreen = () => {
 
     return (
         <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
+
+            <Modal />
 
             <div className='w-full flex flex-col items-start mb-5'>
                 {/* titulo */}
@@ -126,7 +135,8 @@ export const UsersScreen = () => {
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light" 
-                                        onClick={onButtonClick}                               
+                                        onClick={onButtonClick}   
+                         
                                         >
                                         CARGAR IMAGEN
                                     </button>
@@ -137,10 +147,12 @@ export const UsersScreen = () => {
 
                             <div className="text-center pb-1">
                                 <button
-                                className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/6 mb-3"
+                                className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3"
                                 type = "submit"
                                 data-mdb-ripple="true"
-                                data-mdb-ripple-color="light"                                
+                                data-mdb-ripple-color="light" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#exampleModal"                               
                                 >
                                 Ingresar
                                 </button>
@@ -445,7 +457,7 @@ export const UsersScreen = () => {
                 </div>
             </div>
 
-
+            
 
         </div>    
     )

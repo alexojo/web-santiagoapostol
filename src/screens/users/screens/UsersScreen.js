@@ -10,18 +10,16 @@ import { Modal } from '../components/Modal';
 
 export const UsersScreen = () => {
 
-    const [open, setOpen] = useState(true)
-
-    const cancelButtonRef = useRef(null)
-    
+    //List Box
     const people = [
         { name: 'Administrador' },
         { name: 'Docente' },
         { name: 'Secretaria' },
         { name: 'Estudiante' }
     ]
+    const [selected, setSelected] = useState(people[0]);
 
-
+    // Form
     const [ formValues, handleInputChange, setValues ] = useForm({  
         dni: '76222661',
         nombre: 'a',
@@ -37,22 +35,29 @@ export const UsersScreen = () => {
     });
     const { dni, password, nombre, apellidoPaterno, apellidoMaterno, direccion, fechaNacimiento, correoElectronico, nroCelular, rol, urlFoto } = formValues;
 
-    
+    // Image
     const inputFile = useRef(null) 
 
     const onButtonClick = () => {
     // `current` points to the mounted file input element
     inputFile.current.click();
     };
-    const [selected, setSelected] = useState(people[0]);
 
+
+    
+    //
     const RegisterUsuario = ( e ) =>{
         e.preventDefault();
         console.log({...formValues, rol: selected.name});
         
         RegisterUser({...formValues, rol: selected.name})
-        .then((res) => console.log(res))
-        .catch(err => { })
+        .then((resp) => {
+            if(resp.ok){
+                
+            }else{
+
+            }
+        })
         
         
     }
@@ -63,7 +68,7 @@ export const UsersScreen = () => {
     return (
         <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
 
-            <Modal />
+            <Modal id={"exampleModal"} title={"Usuario registrado correctamente!"} subtitle= {"Datos ingresados al sistema"} />
 
             <div className='w-full flex flex-col items-start mb-5'>
                 {/* titulo */}

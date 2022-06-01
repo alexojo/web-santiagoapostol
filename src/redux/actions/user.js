@@ -9,3 +9,11 @@ export const RegisterUser = async ( formValues ) => {
     return body
 
 }
+
+export const GetAllUsers = async ( ) => {
+    
+    const resp = await fetchSinToken( 'auth/get-users' );
+    const body = await resp.json();
+    return body
+
+}

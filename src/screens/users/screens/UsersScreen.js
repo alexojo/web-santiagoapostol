@@ -1,8 +1,8 @@
-import React, { useRef, useState, Fragment } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 import { startRegister } from '../../../redux/actions/auth';
-import { RegisterUser } from '../../../redux/actions/user';
+import { GetAllUsers, RegisterUser } from '../../../redux/actions/user';
 import { Input, InputListbox, InputSearch } from '../components/Input'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
@@ -58,9 +58,25 @@ export const UsersScreen = () => {
 
             }
         })
-        
-        
     }
+    const [users, setUsers] = useState([{ apellidoMaterno: "",
+                                        apellidoPaterno: "",
+                                        correoElectronico: "",
+                                        direccion: "",
+                                        dni: "",
+                                        estado: "",
+                                        fechaNacimiento: "",
+                                        nombre: "",
+                                        nroCelular: "",
+                                        rol: "",
+                                        urlFoto: ""}])
+
+    useEffect(() => {
+        GetAllUsers().
+        then( (resp) => { setUsers( resp.users ) } )
+        
+    }, [])
+    
 
     
     
@@ -186,181 +202,64 @@ export const UsersScreen = () => {
             
                     <div className="bg-white shadow px-4 pt-4  pb-5  rounded-lg">
                         <table className="w-full whitespace-nowrap">
-                            <thead clas>
+                            <thead>
                                 <tr className="h-10 w-full text-sm leading-none text-gray-800">
                                     <th className="font-bold text-left pl-7">Nombre</th>
                                     <th className="font-bold text-left pl-2">ID</th>
-                                    <th className="font-bold text-left pl-7">Clase</th>
-                                    <th className="font-bold text-left pl-7">Edad</th>
-                                    <th className="font-bold text-left pl-7">Género</th>
+                                    <th className="font-bold text-left pl-7">Rol</th>
+                                    <th className="font-bold text-left pl-7">Fecha Nacimiento</th>
+                                    <th className="font-bold text-left pl-7">Estado</th>
                                     <th className="font-bold text-left pl-7">Contacto</th>
                                 </tr>
                             </thead>
                             <tbody className="w-full">
-                                <tr className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
-                                    
+                                {
+                                    users.map( (user, i) => (
 
-                                    <td className="pl-7 cursor-pointer">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
-                                            </div>
-                                            <div className="pl-2">
-                                                <p className="font-medium">Adrian Gonzáles Carpio</p>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        <tr key ={i} className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
+                                        
 
-                                    <td className="pl-2">
-                                        <p className="font-normal">76222661</p>
-
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">5° Primaria 'A'</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">15</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">Masculino</p>
-                                    </td>
-
-                                    
-    
-                                    <td className="pl-7">
-                                        <div className='flex flex-row gap-3 text-sky-600'>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-phone  fa-sm"/>
+                                        <td className="pl-7 cursor-pointer">
+                                            <div className="flex items-center">
+                                                <div className="w-10 h-10">
+                                                    <img className="shadow-md w-full h-full rounded-full object-cover" alt="" src={ user.urlFoto } />
+                                                </div>
+                                                <div className="pl-2">
+                                                    <p className="font-medium">{ `${user.nombre} ${user.apellidoPaterno} ${user.apellidoMaterno}` }</p>
+                                                </div>
                                             </div>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-envelope  fa-sm"/>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
-                                    
+                                        </td>
 
-                                    <td className="pl-7 cursor-pointer">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-                                            </div>
-                                            <div className="pl-2">
-                                                <p className="font-medium">Alex Tapia Creo</p>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        <td className="pl-2">
+                                            <p className="font-normal">{ user.dni }</p>
 
-                                    <td className="pl-2">
-                                        <p className="font-normal">76222661</p>
+                                        </td>
+                                        <td className="pl-7">
+                                            <p className="font-normal"> { user.rol }</p>
+                                        </td>
+                                        <td className="pl-7">
+                                            <p className="font-normal">{ user.fechaNacimiento.substring(0,10) }</p>
+                                        </td>
+                                        <td className="pl-7">
+                                            <p className="font-normal">{ user.estado }</p>
+                                        </td>
 
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">5° Primaria 'A'</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">15</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">Masculino</p>
-                                    </td>
-
-                                    
-    
-                                    <td className="pl-7">
-                                        <div className='flex flex-row gap-3 text-sky-600'>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-phone  fa-sm"/>
+                                        
+        
+                                        <td className="pl-7">
+                                            <div className='flex flex-row gap-3 text-sky-600'>
+                                                <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center' title={user.nroCelular }>
+                                                    <i className="fa-solid fa-phone  fa-sm"/>
+                                                </div>
+                                                <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center' title={ user.direccion }>
+                                                    <i className="fa-solid fa-envelope  fa-sm"/>
+                                                </div>
                                             </div>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-envelope  fa-sm"/>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr> 
-                                <tr className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
-                                    
-
-                                    <td className="pl-7 cursor-pointer">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
-                                            </div>
-                                            <div className="pl-2">
-                                                <p className="font-medium">Adrian Gonzáles Carpio</p>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td className="pl-2">
-                                        <p className="font-normal">76222661</p>
-
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">5° Primaria 'A'</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">15</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">Masculino</p>
-                                    </td>
-
-                                    
-    
-                                    <td className="pl-7">
-                                        <div className='flex flex-row gap-3 text-sky-600'>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-phone  fa-sm"/>
-                                            </div>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-envelope  fa-sm"/>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr className="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
-                                    
-
-                                    <td className="pl-7 cursor-pointer">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10">
-                                                <img className="shadow-md w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-                                            </div>
-                                            <div className="pl-2">
-                                                <p className="font-medium">Alex Tapia Creo</p>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td className="pl-2">
-                                        <p className="font-normal">76222661</p>
-
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">5° Primaria 'A'</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">15</p>
-                                    </td>
-                                    <td className="pl-7">
-                                        <p className="font-normal">Masculino</p>
-                                    </td>
-
-                                    
-    
-                                    <td className="pl-7">
-                                        <div className='flex flex-row gap-3 text-sky-600'>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-phone  fa-sm"/>
-                                            </div>
-                                            <div className='bg-sky-100 rounded-full h-8 w-8 flex items-center justify-center'>
-                                                <i className="fa-solid fa-envelope  fa-sm"/>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>                      
+                                        </td>
+                                        </tr>
+                                    ))
+                                }
+                                                
                             </tbody>
                         </table>
                     </div>

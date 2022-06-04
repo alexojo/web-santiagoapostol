@@ -2,6 +2,8 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { Tabs } from '../../components/Tabs'
+import { Input, InputSearch } from '../../components/Input'
+import { Table } from '../../components/Table'
 
 const people = [
   { name: 'Administrador' },
@@ -9,6 +11,26 @@ const people = [
   { name: 'Secretaria' },
   { name: 'Estudiante' }
 ]
+const tabs = [
+  {
+      target: "#tabs-home3",
+      text: "Información",
+      icon: "fa-solid fa-circle-info",
+      component: <Input />
+  },
+  {
+      target: "#tabs-profile3",
+      text: "Registrar",
+      icon: "fa-solid fa-pen",
+      component: <InputSearch />
+  },
+  {
+      target: "#tabs-messages3",
+      text: "Option 3",
+      icon: "fa-solid fa-message",
+      component: <Input />
+  }
+];
 
 export const AdminScreen = () => {
 
@@ -16,7 +38,7 @@ export const AdminScreen = () => {
 
     return (
       <div className='pl-60 h-screen overflow-auto bg-gray-100'>
-        <Tabs  tabs = {["INFORMACION","CURSOS"]}/>
+        <Table />
       </div>
     )
 }

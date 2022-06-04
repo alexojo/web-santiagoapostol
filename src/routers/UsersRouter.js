@@ -3,12 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import { SideBar } from '../screens/users/components/SideBar/SideBar';
 
 import { AdminScreen } from '../screens/users/screens/admin/AdminScreen';
-import { SectionScreen } from '../screens/users/screens/SectionScreen';
-import { SectionsScreen } from '../screens/users/screens/SectionsScreen';
-import { StudentScreen } from '../screens/users/screens/StudentScreen';
-import { StudentsScreen } from '../screens/users/screens/StudentsScreen';
-import { TeachersScreen } from '../screens/users/screens/TeachersScreen';
-import { UsersScreen } from '../screens/users/screens/UsersScreen';
+import { SectionScreen } from '../screens/users/screens/admin/sections/SectionScreen';
+import { SectionsScreen } from '../screens/users/screens/admin/sections/SectionsScreen';
+import { StudentScreen } from '../screens/users/screens/admin/students/StudentScreen';
+import { StudentsScreen } from '../screens/users/screens/admin/students/StudentsScreen';
+import { TeachersScreen } from '../screens/users/screens/admin/teachers/TeachersScreen';
+import { UsersScreen } from '../screens/users/screens/admin/users/UsersScreen';
 
 
 export const UsersRouter = () => {
@@ -25,7 +25,6 @@ export const UsersRouter = () => {
                     <Route path="teachers" element={<TeachersScreen />} /> 
                     <Route path="students" element={<StudentsScreen />} /> 
                     <Route path="users" element={<UsersScreen />} />                  
-                    <Route path="students" element={<StudentsScreen />} />
                     <Route path="student" element={<StudentScreen />} /> 
                     <Route path="users" element={<UsersScreen />} />                     
                 </Routes>

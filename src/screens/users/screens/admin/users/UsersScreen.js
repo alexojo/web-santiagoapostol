@@ -1,12 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { useForm } from '../../../hooks/useForm';
-import { startRegister } from '../../../redux/actions/auth';
-import { GetAllUsers, RegisterUser } from '../../../redux/actions/user';
-import { Input, InputListbox, InputSearch } from '../components/Input'
-import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationIcon } from '@heroicons/react/outline'
-import { Modal } from '../components/Modal';
+import { GetAllUsers, RegisterUser } from '../../../../../redux/actions/user';
+import { Input, InputListbox, InputSearch } from '../../../components/Input'
+
+import { Modal } from '../../../components/Modal';
+import { Tabs } from '../../../components/Tabs';
+import { PencilAltIcon, UserGroupIcon } from '@heroicons/react/outline';
+import { useForm } from '../../../../../hooks/useForm';
 
 export const UsersScreen = () => {
 
@@ -77,47 +76,46 @@ export const UsersScreen = () => {
         
     }, [])
     
+    const tabs = [
+        {
+            target: "#tabs-home3",
+            text: "Usuarios",
+            icon: <UserGroupIcon className="h-5 w-5 mr-1"/>,
+            component: <Input />
+        },
+        {
+            target: "#tabs-profile3",
+            text: "Registrar",
+            icon: <PencilAltIcon className="h-5 w-5 mr-1"/>,
+            component: <InputSearch />
+        }
+      ];
 
     
     
 
     return (
-        <div className='pl-60 h-screen flex overflow-auto bg-gray-100'>
+        <div className='pl-60 h-screen flex flex-col items-start overflow-auto bg-gray-100'>
 
             <Modal id={"exampleModal"} title={"Usuario registrado correctamente!"} subtitle= {"Datos ingresados al sistema"} />
 
+            <div className="w-full sm:px-6 mb-2 mt-5 sm:flex items-center justify-between">
+                <div>
+                    <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Usuarios</p>
+                    <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
+                </div>
+                           
+            </div>
+            
+            <div className='mb-3 w-full sm:px-6 mt-2'>       
+                <Tabs tabs={ tabs }/>
+            </div>
+
             <div className='w-full flex flex-col items-start mb-5'>
                 {/* titulo */}
-                <div className="w-full sm:px-6 mb-7 mt-5 sm:flex items-center justify-between">
-                    <div>
-                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Usuarios</p>
-                        <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
-                    </div>
-                    
-                    
-                    <div className='flex gap-4'>
-                        <a className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" 
-                            data-bs-toggle="collapse" 
-                            href="#collapseExample" 
-                            
-                            aria-controls="collapseExample">
-                            <i className="fa-solid fa-sliders mr-2"></i>
-                            Filtrar
-                            
-                        </a>
+                
 
-                        <a className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" 
-                            data-bs-toggle="collapse" 
-                            href="#collapseExample" 
-                            
-                            aria-controls="collapseExample">
-                            <i className="fa-solid fa-plus mr-2"></i>
-                            Agregar
-                            
-                        </a>
-
-                    </div>
-                </div>
+                
                 {/* formulario */}
                 <div className="collapse w-full sm:px-6 mt-2 -translate-y-5" id="collapseExample">
     
@@ -273,9 +271,7 @@ export const UsersScreen = () => {
 
                 
                 <div className='overflow-auto'>
-                    <div className='mx-4 mt-5 mb-10 h-20 py-1 shadow-2xl shadow-slate-300/70 border-[1px] border-slate-100 rounded-md '>
-                        <p className='ml-4 font-semibold text-xs text-gray-600'>Asistencia</p>
-                    </div>
+                    
                     <div className='px-4 mt-4 '>
                         <div className='flex flex-row justify-between text-gray-800 text-sm'>
                             <p className='font-semibold '>ID: 123456</p>
@@ -329,20 +325,6 @@ export const UsersScreen = () => {
                             </div>
                         </div>
 
-                        <div className='text-sm text-gray-800 mt-7'>
-                            <p className='font-bold'>Estudiantes del mismo salón</p>
-
-                            <div className="flex flex-grow items-center mt-2">
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(9).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
-                                <img className="shadow-md w-8 h-8 rounded-full border-2 border-white -ml-2" alt="" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" />
-                                
-                                <p className='ml-2 text-xs mt-1 text-sky-600'>+12 más</p>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

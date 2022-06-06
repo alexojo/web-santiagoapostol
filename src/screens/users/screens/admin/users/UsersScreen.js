@@ -72,7 +72,7 @@ export const UsersScreen = () => {
 
     useEffect(() => {
         GetAllUsers().
-        then( (resp) => { setUsers( resp.users ) } )
+        then( (resp) => { setUsers( resp.users ); console.log( resp.users ) } )
         
     }, [])
     

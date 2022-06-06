@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { Tabs } from '../../components/Tabs'
-import { Input, InputSearch } from '../../components/Input'
+import { Input, InputSearch, InputSearchTable } from '../../components/Input'
 import { Table } from '../../components/Table'
 
 const people = [
@@ -38,7 +38,13 @@ export const AdminScreen = () => {
 
     return (
       <div className='pl-60 h-screen overflow-auto bg-gray-100'>
-        <Table />
+        <div className='mt-3'>
+          <Table />
+
+        </div>
+
+
+      
       </div>
     )
 }

@@ -1,4 +1,4 @@
-import { PrinterIcon } from '@heroicons/react/outline'
+import { PrinterIcon, RefreshIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import { InputListbox, InputSearchTable } from './Input'
 
@@ -78,18 +78,22 @@ export const Table = () => {
     const [selected, setSelected] = useState(people[0]);
 
     return (
-        <div className="w-full sm:px-6 overflow-y-auto">
+        <div className="w-full sm:px-6 ">
             
-            <div className="bg-white border border-gray-200 shadows px-4 pt-3  pb-5  rounded-lg">
+            <div className="bg-white border border-gray-200 shadows px-4 pt-3  pb-5  rounded-lg overflow-auto overscroll-contain">
                 <div className='mb-8 flex justify-between items-center '>
                     <div className=''>
                         <InputSearchTable />
                     </div>
-                    <div className='flex items-center  gap-3'>
+                    <div className='flex items-center  gap-1'>
                         <InputListbox basis="w-48" label=""  people = {people} selected={ selected } setSelected = {setSelected }/>
 
                         <button data-mdb-ripple="true" data-mdb-ripple-color="info"
-                        class="py-1.5 rounded-md items-center px-3 border flex text-sm text-gray-600 roun  bg-gray-100 focus:bg-gray-100 active:bg-gray-200 ">
+                        class="py-1.5 rounded-md items-center align-middle px-1 border flex text-sm text-gray-600   bg-gray-100 focus:bg-gray-100 active:bg-gray-200 ">
+                            <RefreshIcon class="h-5 w-5 text-gray-600"/>
+                        </button>
+                        <button data-mdb-ripple="true" data-mdb-ripple-color="info"
+                        class="py-1.5 rounded-md items-center px-3 ml-3 border flex text-sm text-gray-600 roun  bg-gray-100 focus:bg-gray-100 active:bg-gray-200 ">
                             <PrinterIcon class="h-5 w-5 mr-1 text-gray-600"/>
                             Imprimir
                         </button>

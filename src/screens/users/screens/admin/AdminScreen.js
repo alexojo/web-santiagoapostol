@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuid } from 'uuid'
 import { Table } from "../../components/Table";
+import { UserDetails } from "../../components/UserDetails";
 /* const people = [
   { name: 'Administrador' },
   { name: 'Docente' },
@@ -32,9 +33,12 @@ const tabs = [
 export const AdminScreen = () => {
 
     return (
-      <div className='pl-60 h-screen overflow-auto bg-gray-100'>
-        <div className="mt-3">
-          <Table />
+      <div className='pl-60 min-h-screen overflow-auto bg-gray-100'>
+        <div className="w-80 min-h-screen flex bg-red-100">
+          <div className="my-3">
+
+          <UserDetails />
+          </div>
         </div>
 
 

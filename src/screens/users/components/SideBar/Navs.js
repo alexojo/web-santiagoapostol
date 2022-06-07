@@ -17,7 +17,7 @@ export const NavsAdmin = [
         user: typesUser.userAdmin,
         name: 'Docentes',
         link: '/teachers',
-        icon: 'fa-solid fa-user-tie '
+        icon: 'fa-solid fa-user-tie'
     },
     {
         user: typesUser.userAdmin,

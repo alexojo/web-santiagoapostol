@@ -24,7 +24,7 @@ export const Tabs = ({ tabs}) => {
 
     return (
         <>
-            <div class="mb-4 border-b-2 border-gray-30 dark:border-gray-700" >
+            <div class="mb-4 border-b-2 border-gray-300" >
                 <ul class="nav nav-tabs flex flex-wrap  text-sm font-medium text-center "  id="tabs-tab3" role="tablist">
                     {
                         tabs.map( (tab, index) => (

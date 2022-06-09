@@ -13,7 +13,7 @@ export const UserDetails = ({ url = '/student' }) => {
         direccion: "Urb Amauta B-14",
         dni: "22222222",
         estado: "Activo",
-        fechaNacimiento: "2001-01-21T00:00:00.000Z",
+        fechaNacimiento: "2001-01-21",
         genero:"Masculino",
         nombre: "Alexander Junior",
         nroCelular: "a",
@@ -89,7 +89,7 @@ export const UserDetails = ({ url = '/student' }) => {
                             <div className="w-28 h-28 shadow-lg bord border-[5px] border-white shadow-gray-300 rounded-full">
                                 <img className="w-full h-full rounded-full object-cover" alt="" src="https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
                             </div>
-                            <p className='font-bold leading-none text-base text-sky-600 mt-4'>{`${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}`}</p>
+                            <p className='font-bold leading-none text-center text-base text-sky-600 mt-4'>{`${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}`}</p>
                             <p className='font-medium leading-none text-xs text-sky-600 mt-2'>{ data.rol }</p>
 
 

@@ -195,7 +195,6 @@ export const SectionsScreen = () => {
 
             {/* informacion personal */}
             <div className='w-96 bg-white mr-6  my-5 shadow rounded-lg flex flex-col justify-between '>
-
                 
                 <div className='overflow-auto'>
                     <div className='mx-4 mt-5 mb-10 h-20 py-1 shadow-2xl shadow-slate-300/70 border-[1px] border-slate-100 rounded-md '>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Input, InputSearch } from './Input';
+import { Table } from './Table';
+import { UserDetails } from './UserDetails';
 
 export const Tabs = ({ tabs}) => {
 
@@ -24,7 +26,7 @@ export const Tabs = ({ tabs}) => {
 
     return (
         <>
-            <div class="mb-4 border-b-2 border-gray-300" >
+            <div class="mb-4 border-b-2 border-gray-300 mx-5" >
                 <ul class="nav nav-tabs flex flex-wrap  text-sm font-medium text-center "  id="tabs-tab3" role="tablist">
                     {
                         tabs.map( (tab, index) => (
@@ -36,7 +38,7 @@ export const Tabs = ({ tabs}) => {
                                     
                                     > {tab.icon} { tab.text }</a>
 
-                                    { Active[index] && <div className='bg-sky-600 h-[4px] w-full absolute left-0 -bottom-[2px] rounded-t-sm transition duration-300 ease-in-out'></div>}
+                                    {Active[index] &&  <div className='bg-sky-600 h-[4px] w-full absolute left-0 -bottom-[2px] rounded-t-sm transition duration-300 ease-in-out'></div>}
 
                                 </div>
                             </li>
@@ -45,23 +47,15 @@ export const Tabs = ({ tabs}) => {
                 </ul>
             </div>
 
-
-
-            <div class="tab-content" >
-                    {
-                        tabs.map( (tab, index) => (
-
-                            <div class={`tab-pane fade show ${ Active[index] ? 'active' : ''}`} id={ tab.target.slice(1) }  >
-                                { tab.component }
-                            </div>
-                        ))
-                    }
-            </div>
-
             
-
-
-    
+            {
+                tabs.map( (tab, index) => (
+                    <>
+                        {Active[index] && tab.component }
+                    </>
+                    
+                ))
+            }
 
         </>
     )

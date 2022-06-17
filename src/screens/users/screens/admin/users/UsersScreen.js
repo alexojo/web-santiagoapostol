@@ -7,6 +7,7 @@ import { Tabs } from '../../../components/Tabs';
 import { PencilAltIcon, UserGroupIcon } from '@heroicons/react/outline';
 import { useForm } from '../../../../../hooks/useForm';
 import { ListaUsuarios } from './ListaUsuarios';
+import { Header } from '../../../components/Header';
 
 export const UsersScreen = () => {
 
@@ -96,18 +97,11 @@ export const UsersScreen = () => {
     
 
     return (
-        <div className='pl-60 h-screen overflow-auto bg-gray-100'>
+        <div className='pl-60 h-screen overflow-auto bg-slate-100'>
 
             <div className="w-full h-full flex flex-col">
-                <div className="sm:px-6 mb-2 mt-5 sm:flex items-center justify-between">
-                    <div>
-                        <p className="text-2xl font-bold leading-normal text-gray-800">Datos de Usuarios</p>
-                        <p className="text-sm font-normal leading-normal text-gray-500">Hola Dante, bienvenido al panel de Santiago Apóstol</p>
-                    </div>
-                            
-                </div>
-                
-                    
+                <Header title={"Datos de Usuarios"}/>
+
                 <Tabs tabs={ tabs }/>
             
             </div>

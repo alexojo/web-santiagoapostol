@@ -33,34 +33,13 @@ const tabs = [
 export const AdminScreen = () => {
 
     return (
-      <div className='pl-60 h-screen bg-gray-100 overflow-auto'>
-        <div className="w-full h-full flex flex-col">
-        <div className="bg-red-500 h-10">
-            
-          </div>
-          <div className="bg-red-400 h-10">
-            
-          </div>
-          <>
-            <div className="bg-red-300 h-5">
-              
-            </div>
+      <>
+          
+      </>
+    
+                                   
 
-            <div className="flex overflow-auto h-full">
-              <div className="w-full sm:px-6 overflow-auto mb-5">
-                <Table />
-              </div>
-              <div className="w-96 mr-6  mb-5">
-                <UserDetails />
-              </div>
-            </div>
-          </>
-        </div>
-
-
-      
-      </div>
-    )
+      )
 }
 
 /* const itemsFromBackend = [

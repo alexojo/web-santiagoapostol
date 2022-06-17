@@ -40,7 +40,7 @@ export const SideBar = () => {
 
 
     return (
-        <div className="w-60 h-full shadow-md bg-white absolute flex flex-col justify-between" id="sidenavSecExample">
+        <div className="w-60 h-full border-r bg-white absolute flex flex-col justify-between" id="sidenavSecExample">
             
             <div className='overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300'>
                 <div className="py-2 px-6">

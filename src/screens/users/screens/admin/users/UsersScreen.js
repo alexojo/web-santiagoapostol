@@ -8,6 +8,7 @@ import { PencilAltIcon, UserGroupIcon } from '@heroicons/react/outline';
 import { useForm } from '../../../../../hooks/useForm';
 import { ListaUsuarios } from './ListaUsuarios';
 import { Header } from '../../../components/Header';
+import { RegistrarUsuario } from './RegistrarUsuario';
 
 export const UsersScreen = () => {
 
@@ -89,7 +90,7 @@ export const UsersScreen = () => {
             target: "#tabs-profile3",
             text: "Registrar",
             icon: <PencilAltIcon className="h-5 w-5 mr-1"/>,
-            component: <InputSearch />
+            component: <RegistrarUsuario />
         }
       ];
 

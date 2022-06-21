@@ -101,20 +101,11 @@ export const UsersScreen = () => {
         <div className='pl-60 h-screen overflow-auto bg-slate-100'>
 
             <div className="w-full h-full flex flex-col">
-                <Header title={"Datos de Usuarios"}/>
+                <Header title={"Usuarios"}/>
 
                 <Tabs tabs={ tabs }/>
             
             </div>
-            
-
-
-
-            
-
-
-
-            
 
         </div>    
     )

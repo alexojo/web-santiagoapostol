@@ -4,12 +4,16 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-export const Input = ({label, basis, cursor="", name, value ="", placeholder, type = "text", onChange }) => {
+export const Input = ({label, basis, cursor="", name, value ="", placeholder, type = "text", onChange, disabled, autoFocus, important }) => {
     return (
         <div className={`mb-4 grow shrink ${basis}`}>    
-            <label className="block text-xs font-medium text-gray-700 ml-1">{ label }</label>
+            <label className={`block text-xs font-medium text-gray-700 ml-1 ${ important ? "after:content-['*'] after:ml-0.5 after:text-red-500" : ""}`}>{ label }</label>
             <input                                                
-                className={`mt-[1px] block w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-2 focus:outline-none ${cursor}`}
+                className={`mt-[1px] block w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-2 focus:outline-none
+                          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                           ${cursor} `}
+                autoFocus={autoFocus}
+                disabled={disabled}
                 placeholder= { placeholder }
                 name= { name }
                 value = { value }
@@ -21,18 +25,20 @@ export const Input = ({label, basis, cursor="", name, value ="", placeholder, ty
     )
 }
 
-export const InputSearch = ({label, name, value ="", placeholder, onChange }) => {
+export const InputSearch = ({label, name, value ="", placeholder, onChange, autoFocus }) => {
     return (
         <div className="mb-2 grow shrink basis-1/4">    
-            <label className="block text-xs font-medium text-gray-700 ml-1">{ label }</label>
+            <label className="block text-xs font-medium text-gray-700 ml-1 after:content-['*'] after:ml-0.5 after:text-red-500">{ label }</label>
             <div class="flex mt-[1px]">
                 <input 
-                    className=" w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white border-y border-l  border-gray-300 rounded-l-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-y-2 focus:border-l-2 focus:outline-none"
+                    className=" w-full px-3 py-1.5 text-sm font-normal text-gray-700 bg-white border-y border-l  border-gray-300 rounded-l-md transition ease-in-out m-0 
+                              focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:border-y-2 focus:border-l-2 focus:outline-none "
                     placeholder="Buscar"
+                    autoFocus={autoFocus}
                     name = { name }
                     value = { value }
                     onChange = { onChange }/>
-                <button class=" bg-slate-200 shadow-gray-300/40 shadow-lg font-semibold text-gray-700 pl-2 pr-1 rounded-r-md hover:text-sky-600 hover:bg-slate-300 transition duration-300 ease-in-out"
+                <button class=" bg-slate-200 shadow-gray-300/40 shadow-lg font-semibold text-gray-700 pl-2 pr-1 rounded-r-md hover:text-sky-600 hover:bg-slate-300 transition duration-300 ease-in-out "
                         type="button"
                         data-mdb-ripple="true"
                         data-mdb-ripple-color="light">

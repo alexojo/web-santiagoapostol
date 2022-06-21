@@ -5,7 +5,6 @@ import { UserDetails } from './UserDetails';
 
 export const Tabs = ({ tabs}) => {
 
-    console.log( tabs )
 
     const [Active, setActive] = useState([])
     

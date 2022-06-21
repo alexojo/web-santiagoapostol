@@ -32,14 +32,10 @@ const tabs = [
 
 export const AdminScreen = () => {
 
-    return (
-      <>
-          
-      </>
-    
-                                   
-
-      )
+   return (
+    <>
+    </>
+   )
 }
 
 /* const itemsFromBackend = [

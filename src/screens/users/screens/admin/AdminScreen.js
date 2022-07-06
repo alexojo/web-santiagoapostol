@@ -1,6 +1,9 @@
+import { ExternalLinkIcon, PlusCircleIcon, PlusIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuid } from 'uuid'
+import { Button, GrayButton, PrimaryButton, StrokedButton } from "../../components/Buttons";
+import { Modal } from "../../components/Modal";
 import { Table } from "../../components/Table";
 import { UserDetails } from "../../components/UserDetails";
 /* const people = [
@@ -30,11 +33,27 @@ const tabs = [
   }
 ]; */
 
+
 export const AdminScreen = () => {
 
+    const [modalActive, setmodalActive] = useState(false) 
+
+  const imprimir = () => {
+    setmodalActive(true)
+  }
+
    return (
-    <>
-    </>
+    <div className="ml-64 min-h-screen">
+
+      <div className="pt-5 flex gap-5">
+        <Button  label="AGREGAR" icon={<PlusIcon/>} typeButton="secondary" handleClick={imprimir} type="button" />
+        <Button  label="AGREGAR" icon={<PlusIcon/>} typeButton="primary"   />
+        <Button  label="AGREGAR" icon={<PlusIcon/>} typeButton="stroked"   />
+        <Button  label="AGREGAR" icon={<PlusIcon/>} typeButton="gray"   />
+
+      </div>
+      <Modal title="Registro guardado" subtitle="Alexander Monzon Montalvo fue añadido" show={ modalActive} setShow={setmodalActive} typeModal="error" />
+    </div>
    )
 }
 

@@ -138,11 +138,11 @@ export const UserDetails = ({ url = '/student' }) => {
                 
                 <div className='mt-5 px-4 border-t-[1px] my-2 flex items-center justify-center'>   
                     <button 
-                    className='my-3 shadow-lg bg-slate-200 shadow-gray-300/40 text-xs font-semibold text-sky-600 py-2 px-8 rounded-lg align-middle hover:text-sky-700 hover:bg-slate-300 transition duration-300 ease-in-out'
+                    className='my-3 shadow-sm shadow-gray-600/50 bg-slate-200 text-xs font-semibold text-gray-700 py-2 px-8 rounded-md align-middle hover:text-sky-700 hover:bg-slate-300 transition duration-300 ease-in-out'
                     data-mdb-ripple="true" data-mdb-ripple-color="info" onClick={ () => navegar( url ) }>
                         
                     <i className="fa-solid fa-arrow-up-right-from-square mr-2"></i>
-                    Más info
+                    Más Info
                     
                     </button>
                     

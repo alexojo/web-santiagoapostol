@@ -3,7 +3,9 @@ import { Table } from '../../../components/Table'
 import { UserDetails } from '../../../components/UserDetails'
 import { Input, InputListbox, InputSearch } from '../../../components/Input'
 import { useForm } from '../../../../../hooks/useForm'
-import { GetAllUsers, RegisterUser } from '../../../../../redux/actions/user';
+import { GetAllUsers, GetName, GetUserByDni, RegisterUser } from '../../../../../redux/actions/user';
+import { Button } from '../../../components/Buttons'
+import { Modal } from '../../../components/Modal'
 
 export const RegistrarUsuario = () => {
 
@@ -17,7 +19,7 @@ export const RegistrarUsuario = () => {
     const [selected, setSelected] = useState(people[0]);
 
     // Form
-    const [ formValues, handleInputChange, setValues ] = useForm({  
+    const [ formValues, handleInputChange, setValues, reset ] = useForm({  
         dni: '',
         nombre: '',
         apellidoPaterno: '',
@@ -32,11 +34,13 @@ export const RegistrarUsuario = () => {
     });
     const { dni, password, nombre, apellidoPaterno, apellidoMaterno, direccion, fechaNacimiento, correoElectronico, nroCelular, rol, urlFoto } = formValues;
 
-    // Image
+    // Load image 
     const fileInputRef = useRef(null)
     
     const [image, setImage] = useState();
     const [preview, setPreview] = useState( );
+
+    
 
     useEffect(() => {
         if (image) {
@@ -50,42 +54,90 @@ export const RegistrarUsuario = () => {
         }
     }, [image]);
     
-    
-
-
-
     const onButtonClick = () => {
         // `current` points to the mounted file input element
         fileInputRef.current.click();
     };
-
+    
+    
 
     
-    //
+    // Register User
     const RegisterUsuario = ( e ) =>{
         e.preventDefault();
-        //console.log({...formValues, rol: selected.name});
+        console.log({...formValues, rol: selected.name});
         
         RegisterUser({...formValues, rol: selected.name})
         .then((resp) => {
             if(resp.ok){
-                
+                const auxSubtitle = ` ${nombre} ${apellidoPaterno} ${apellidoMaterno} fue registrado con éxito`;
+                setmodalActive(true); setmodalBody({title:'Usuario registrado exitosamente', subtitle: auxSubtitle, typeModal:'success'});
+                reset();
             }else{
-
+                setmodalActive(true); setmodalBody({title:'Upps!', subtitle:'Hubo algún error al ingresar al usuario', typeModal:'error'});
             }
         })
     }
-    const [users, setUsers] = useState([{ apellidoMaterno: "",
-                                        apellidoPaterno: "",
-                                        correoElectronico: "",
-                                        direccion: "",
-                                        dni: "",
-                                        estado: "",
-                                        fechaNacimiento: "",
-                                        nombre: "",
-                                        nroCelular: "",
-                                        rol: "",
-                                        urlFoto: ""}])
+
+    
+    
+    // Search User
+
+    const [cargandoSearch, setCargandoSearch] = useState(false)
+    const [nombreCompleto, setNombreCompleto] = useState("")
+
+    const loadName = ( e ) => {
+        e.preventDefault();
+        setCargandoSearch(true)
+        
+        GetName(dni).
+        then(res => {  
+
+            if(res.dni){ // Si el dni existe cargar datos
+                const auxNombre = `${res.nombres} ${res.apellidoPaterno} ${res.apellidoMaterno}`;
+                
+                GetUserByDni(dni). // Verificar si DNI ya esta en la base de datos
+                then(resExiste => {
+                    if(resExiste.ok){ // Si esta registrado mostrar modal
+                        const auxSubtitle = ` ${resExiste.user.nombre} ${resExiste.user.apellidoPaterno} ${resExiste.user.apellidoMaterno} esta registrado`;   
+                        setmodalActive(true); setmodalBody({title:'Usuario ya registrado', subtitle: auxSubtitle, typeModal:'error'})
+                    }else{  // Si no esta registrado llenar datos
+                        setNombreCompleto(auxNombre) // Input Nombre
+                        setValues({...formValues, nombre: res.nombres, apellidoPaterno: res.apellidoPaterno, apellidoMaterno: res.apellidoMaterno}) // Llenar formulario
+                    }
+                })
+            }
+            else{   // Si el dni no existe mostrar modal
+                setmodalActive(true); setmodalBody({title:'DNI no encontrado', subtitle:'Datos no encontrados en la RENIEC', typeModal:'error'})
+            }
+            setCargandoSearch(false)
+
+        })
+        .catch(err => { // Si hay error mostrar modal
+            
+            setmodalActive(true); setmodalBody({title:'DNI no válido', subtitle:'El DNI ingresado debe tener 8 carácteres', typeModal:'error'})
+            setCargandoSearch(false)
+            
+        })
+        
+    }
+
+    // Cancelar registro de usuario 
+
+    const CancelarRegistro = ( e ) => {
+        e.preventDefault();
+        reset();
+        setNombreCompleto("");
+        
+    }
+
+    // Modal
+    const [modalActive, setmodalActive] = useState(false) //Modal
+    const [modalBody, setmodalBody] = useState({
+        title: '',
+        subtitle: '',
+        typeModal:''
+    })
 
 
     return (
@@ -96,21 +148,23 @@ export const RegistrarUsuario = () => {
                     <div className="text-sm font-normal leading-normal text-gray-400">
                         Complete el siguiente formulario para agregar una nuevo usuario
                     </div>
+      
                     <form onSubmit={ RegisterUsuario }>
                         
                         <div className='mt-4 basis-1/'>
                             <div className='w-full'>
                                 <div className='flex flex-col'>
-                                    <InputSearch label="DNI" name="dni" placeholder="********" value = { dni } onChange = { handleInputChange } autoFocus="autofocus"/>
-                                    <Input basis="w-full" label="Nombre completo:" name="nombre" placeholder="" value = { nombre } onChange = { handleInputChange } disabled="disabled"/>
+                                    <InputSearch label="DNI" name="dni" placeholder="********" value = { dni } onChange = { handleInputChange } autoFocus="autofocus" handleClick={loadName } process={cargandoSearch}/>
+                                    
+                                    <Input basis="w-full" label="Nombre completo:" name="nombreCompleto" placeholder="" value = { nombreCompleto } onChange = { handleInputChange } disabled="disabled"/>
                                 </div>
                                 <div className='flex flex-wrap gap-x-4 bass'>
                                     
-                                    <Input basis="w-full" label="Dirección:" name="direccion" placeholder="Urb. Av. Calle. XXXXX  N° XXX" value = { direccion } onChange = { handleInputChange } important="true" />
-                                    <Input basis="w-full" label="Fecha Nacimiento:" name="fechaNacimiento" type="date" placeholder="" value = { fechaNacimiento } onChange = { handleInputChange } important="true"/>
+                                    <Input basis="w-full" label="Dirección:" name="direccion" placeholder="Urb. Av. Calle. XXXXX  N° XXX" value = { direccion } onChange = { handleInputChange } required="required" />
+                                    <Input basis="w-full" label="Fecha Nacimiento:" name="fechaNacimiento" type="date" placeholder="" value = { fechaNacimiento } onChange = { handleInputChange } required="required"/>
                                     
                                     <Input basis="w-full" label="Correo electrónico:" name="correoElectronico" placeholder="Debe ingresar un correo válido" type='email' value = { correoElectronico } onChange = { handleInputChange } />
-                                    <Input basis="w-full" label="Nro. Celular:" name="nroCelular" placeholder="999 123 456" value = { nroCelular } onChange = { handleInputChange } important="true"/>
+                                    <Input basis="w-full" label="Nro. Celular:" name="nroCelular" placeholder="999 123 456" value = { nroCelular } onChange = { handleInputChange } required="required"/>
                                     <InputListbox basis="w-full" label="Rol:" people = {people} selected={ selected } setSelected = {setSelected }/>
                                 </div>
 
@@ -120,7 +174,7 @@ export const RegistrarUsuario = () => {
                             <div className='w-full border border-solid border-gray-300 rounded-md flex flex-col items-center'>
                                 
                                 <img src={preview}
-                                    className='border border-dashed border-gray-300 rounded-md w-48 h-48 object-cover  m-4'/>
+                                    className='border border-dashed border-gray-300 rounded-md w-48 h-48 object-cover m-4 select-none'/>
                                 <div className='gap-4 flex'>
                                     <button
                                         className=" border-2 border-slate-200  shadow-lg shadow-gray-300/40 px-12 py-2.5 text-gray-700 font-semibold text-xs leading-tight uppercase rounded-md  hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3"
@@ -159,22 +213,29 @@ export const RegistrarUsuario = () => {
 
                         </div>
                         
-
-                        <div className="text-center pb-1 mt-4">
-                            <button
-                            className="bg-sky-600 inline-block px-6 py-2.5 text-white font-medium text-xs uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3"
-                            type = "submit"
-                            data-mdb-ripple="true"
-                            data-mdb-ripple-color="light" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#exampleModal"                               
-                            >
-                            Ingresar
-                            </button>
+                        <hr className='my-5'/>
+                        <div className="flex items-center gap-4 justify-end pb-1 mt-4">
+                            
+                            <Button
+                                label='CANCELAR'
+                                typeButton='stroked'
+                                style=''
+                                handleClick={() => {reset(); setNombreCompleto(""); setmodalActive(true); setmodalBody({title:'Cancelar', subtitle:'¿Está seguro que desea cancelar?', typeModal:'error'})}}
+                                modal="#cancelModal"
+                            />
+                            <Button
+                                type="submit"
+                                label='REGISTRAR'
+                                typeButton='primary'
+                                modal="#exampleModal"
+                                style=''
+                            />
+  
                         </div>
                                     
                     </form>
                 </div>
+                
             </div>
             
 
@@ -210,6 +271,8 @@ export const RegistrarUsuario = () => {
 
                 </div>
             </div>
+
+            <Modal title={modalBody.title} subtitle={modalBody.subtitle} show={ modalActive} setShow={setmodalActive} typeModal={modalBody.typeModal} />
         </div>
     )
 }
